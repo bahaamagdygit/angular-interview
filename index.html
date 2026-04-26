@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>+400 سؤال إنترفيو — HTML · CSS · JS · ES · TS · Angular</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="logo"><div class="logo-i">B</div><span>Bahaa Magdy</span></div>
+    <div class="sw"><input id="srch" type="text" placeholder="🔍 ابحث عن سؤال..." oninput="render()"></div>
+    <div class="hst">
+      <div class="hn"><div class="hn-n" id="tq">0</div><div class="hn-l">سؤال</div></div>
+      <div class="hn"><div class="hn-n" id="oq">0</div><div class="hn-l">مفتوح</div></div>
+      <div class="hn"><div class="hn-n" id="pct">0%</div><div class="hn-l">تقدم</div></div>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <h1>+400 سؤال إنترفيو Front-End</h1>
+  <p>HTML · CSS · JavaScript · ES6+ · TypeScript · Angular — كل اللي محتاجه عشان تكون جاهز للإنترفيو.</p>
+  <div class="prog"><div class="prog-bar"><div class="prog-fill" id="pf"></div></div><div class="prog-l"><span>تقدمك</span><span id="pcl">0 من 0</span></div></div>
+</section>
+<div class="cont">
+  <aside class="side"><h3>الأقسام</h3><div id="catlist"></div></aside>
+  <main class="mn" id="mn"></main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

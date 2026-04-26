@@ -1,0 +1,2499 @@
+[
+  {
+    "id": "html",
+    "ar": "HTML",
+    "en": "HyperText Markup Language",
+    "icon": "🌐",
+    "color": "#fb923c",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هو HTML؟",
+        "a": "<b>HTML</b> اختصار لـ HyperText Markup Language، وهي لغة الترميز المستخدمة لإنشاء صفحات الويب وتوصيف هيكلها باستخدام عناصر (tags)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين HTML و HTML5؟",
+        "a": "<b>HTML5</b> هو الإصدار الأحدث ويدعم elements جديدة مثل <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>، بالإضافة لـ APIs جديدة مثل LocalStorage, Geolocation, Web Workers."
+      },
+      {
+        "l": "b",
+        "q": "ما هو DOCTYPE وليه بنستخدمه؟",
+        "a": "<code>&lt;!DOCTYPE html&gt;</code> بيخبر المتصفح بنوع الـ document وإصدار HTML المستخدم. لو محذوف المتصفح بيشتغل في <b>quirks mode</b> اللي بيسبب مشاكل في الـ rendering."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Block و Inline elements؟",
+        "a": "<b>Block</b> بياخد عرض كامل للسطر ويبدأ في سطر جديد (مثل div, p, h1). <b>Inline</b> بياخد عرض المحتوى بس وما بيكسرش السطر (مثل span, a, img)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ Semantic Elements؟",
+        "a": "عناصر HTML5 اللي بتعطي معنى للمحتوى مثل <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>. بتحسن الـ <b>SEO</b> و <b>accessibility</b>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين id و class؟",
+        "a": "<b>id</b> فريد ولا يتكرر في الصفحة (يستخدم # في CSS). <b>class</b> ممكن يتكرر على عناصر متعددة (يستخدم . في CSS)."
+      },
+      {
+        "l": "b",
+        "q": "ما الفرق بين &lt;div&gt; و &lt;span&gt;؟",
+        "a": "<b>div</b> عنصر block-level للتقسيم العام للصفحة. <b>span</b> عنصر inline لتنسيق جزء صغير من النص داخل سطر."
+      },
+      {
+        "l": "b",
+        "q": "كيف تضيف صورة في HTML؟",
+        "a": "باستخدام <code>&lt;img src=\"path\" alt=\"description\"&gt;</code>. الـ <b>alt</b> مهم للـ accessibility ولو الصورة مفتحتش."
+      },
+      {
+        "l": "b",
+        "q": "ما هي أنواع الـ Lists في HTML؟",
+        "a": "<b>ul</b> (Unordered list) قائمة غير مرتبة. <b>ol</b> (Ordered list) قائمة مرتبة. <b>dl</b> (Definition list) قائمة تعريفات."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين &lt;b&gt; و &lt;strong&gt;؟",
+        "a": "<b>&lt;b&gt;</b> للنص الغامق بصرياً فقط. <b>&lt;strong&gt;</b> بيدل على أهمية المحتوى semantically (مهم للـ screen readers و SEO)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين &lt;i&gt; و &lt;em&gt;؟",
+        "a": "<b>&lt;i&gt;</b> للنص المائل بصرياً. <b>&lt;em&gt;</b> بيدل على التأكيد semantically."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ Meta tags؟",
+        "a": "عناصر داخل <code>&lt;head&gt;</code> بتعطي معلومات عن الصفحة مثل: <code>charset</code>, <code>viewport</code>, <code>description</code>, <code>keywords</code>, <code>author</code>. مهمة للـ SEO."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ Forms في HTML؟",
+        "a": "<code>&lt;form&gt;</code> عنصر لجمع بيانات من المستخدم وإرسالها للسيرفر. ليها attributes مثل <b>action</b> (URL الإرسال) و <b>method</b> (GET/POST)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين method=\"GET\" و method=\"POST\"؟",
+        "a": "<b>GET</b> بيرسل البيانات في URL، حدها 2048 char، مرئي وقابل للحفظ في cache. <b>POST</b> بيرسل البيانات في body، أكثر أماناً، بدون حد للحجم."
+      },
+      {
+        "l": "b",
+        "q": "ما هي أنواع &lt;input&gt;؟",
+        "a": "text, password, email, number, date, checkbox, radio, file, submit, button, hidden, color, range, url, tel, search."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين checkbox و radio؟",
+        "a": "<b>checkbox</b> يسمح باختيار متعدد. <b>radio</b> يسمح باختيار واحد فقط من مجموعة (لازم نفس الـ name)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ placeholder attribute؟",
+        "a": "بيعرض نص داخل الـ input كتوضيح للمستخدم وبيختفي لما يبدأ الكتابة."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين readonly و disabled؟",
+        "a": "<b>readonly</b> القيمة غير قابلة للتعديل لكن بترسل مع الـ form. <b>disabled</b> غير قابلة للتعديل ومش بترسل مع الـ form."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ required attribute؟",
+        "a": "تجبر المستخدم على ملء الحقل قبل الـ submit، وهي جزء من HTML5 form validation."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ &lt;label&gt; وليه مهمة؟",
+        "a": "بتربط النص بحقل input عن طريق <b>for</b> attribute. مهمة للـ accessibility ولما المستخدم يضغط على الـ label يفتح الـ input."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;, &lt;th&gt;؟",
+        "a": "<b>table</b> الجدول كله. <b>tr</b> صف. <b>td</b> خلية بيانات. <b>th</b> خلية رأس (bold ومحاذاة لليسار افتراضياً)."
+      },
+      {
+        "l": "b",
+        "q": "ما هو colspan و rowspan؟",
+        "a": "<b>colspan</b> دمج خلايا أفقياً عبر عدة أعمدة. <b>rowspan</b> دمج خلايا رأسياً عبر عدة صفوف."
+      },
+      {
+        "l": "b",
+        "q": "ما هو الفرق بين &lt;a&gt; href و target؟",
+        "a": "<b>href</b> الرابط المستهدف. <b>target=\"_blank\"</b> فتح في تاب جديد، <b>_self</b> نفس التاب، <b>_parent</b> الـ parent frame، <b>_top</b> أعلى مستوى."
+      },
+      {
+        "l": "b",
+        "q": "ما هو rel=\"noopener noreferrer\"؟",
+        "a": "يستخدم مع <code>target=\"_blank\"</code> لمنع الصفحة الجديدة من الوصول للـ window.opener (أمان) ومنع إرسال referrer info."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ entity characters؟",
+        "a": "رموز خاصة لعرض حروف لها معنى في HTML مثل: <code>&amp;lt;</code> لـ &lt;، <code>&amp;gt;</code> لـ &gt;، <code>&amp;amp;</code> لـ &amp;، <code>&amp;nbsp;</code> للمسافة."
+      },
+      {
+        "l": "m",
+        "q": "ما الفرق بين &lt;section&gt; و &lt;article&gt;؟",
+        "a": "<b>article</b> محتوى مستقل قابل للتوزيع (مقال، خبر). <b>section</b> تقسيم منطقي للمحتوى داخل صفحة أو article."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الـ Web Storage؟",
+        "a": "API لتخزين بيانات في المتصفح: <b>localStorage</b> (دائم حتى يحذفه المستخدم) و <b>sessionStorage</b> (يمسح عند إغلاق التاب). أكبر من Cookies (5-10MB)."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين localStorage و sessionStorage و Cookies؟",
+        "a": "<b>localStorage</b> دائم، 5-10MB، client-only. <b>sessionStorage</b> مؤقت للـ tab، 5-10MB. <b>Cookies</b> 4KB، بترسل مع كل request للسيرفر."
+      },
+      {
+        "l": "m",
+        "q": "ما هي data-* attributes؟",
+        "a": "attributes مخصصة لتخزين بيانات في العنصر مثل <code>&lt;div data-id=\"5\"&gt;</code>. تُقرأ في JS عبر <code>element.dataset.id</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي contenteditable attribute؟",
+        "a": "تحويل أي عنصر لقابل للتعديل من المستخدم مباشرة بدون input، مثل <code>&lt;div contenteditable=\"true\"&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الفرق بين &lt;canvas&gt; و &lt;svg&gt;؟",
+        "a": "<b>Canvas</b> raster (بكسلات)، أفضل للألعاب والرسومات الكثيفة. <b>SVG</b> vector، قابل للتكبير بدون فقد جودة، DOM-based ويمكن تنسيقه بـ CSS."
+      },
+      {
+        "l": "m",
+        "q": "ما هي الـ ARIA attributes؟",
+        "a": "Accessible Rich Internet Applications، مجموعة attributes لتحسين accessibility مثل <code>aria-label</code>, <code>aria-hidden</code>, <code>role</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما الفرق بين defer و async في &lt;script&gt;؟",
+        "a": "<b>defer</b> ينزل الـ script بالتوازي وينفذه بعد parsing الصفحة بترتيب الكتابة. <b>async</b> ينزل بالتوازي وينفذ فوراً بدون ترتيب."
+      },
+      {
+        "l": "m",
+        "q": "ليه نضع &lt;script&gt; في نهاية body؟",
+        "a": "لتجنب block للـ HTML parsing، فيخلي الصفحة تظهر للمستخدم أسرع قبل تنفيذ JS."
+      },
+      {
+        "l": "m",
+        "q": "ما هي الـ iframes ومخاطرها؟",
+        "a": "<code>&lt;iframe&gt;</code> لتضمين صفحة داخل أخرى. مخاطرها: clickjacking, performance overhead, security issues. حلها بـ <b>sandbox</b> attribute و <b>X-Frame-Options</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الـ Viewport meta tag؟",
+        "a": "<code>&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;</code> ضرورية للـ responsive design لمنع zoom افتراضي على الموبايل."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين &lt;picture&gt; و &lt;img&gt;؟",
+        "a": "<b>picture</b> يسمح بتقديم صور مختلفة حسب حجم الشاشة أو الـ format باستخدام <code>&lt;source&gt;</code> داخله، مفيد للـ responsive images."
+      },
+      {
+        "l": "m",
+        "q": "ما هو srcset في &lt;img&gt;؟",
+        "a": "بيحدد مصادر متعددة بأحجام مختلفة للصورة، والمتصفح يختار الأنسب حسب الـ DPR وحجم الشاشة."
+      },
+      {
+        "l": "m",
+        "q": "ما هو loading=\"lazy\"؟",
+        "a": "تأخير تحميل الصور أو iframes حتى تقترب من viewport، يحسن أداء الصفحة."
+      },
+      {
+        "l": "m",
+        "q": "ما هي الـ Web Components؟",
+        "a": "مكونات قابلة لإعادة الاستخدام مبنية من: <b>Custom Elements</b>, <b>Shadow DOM</b>, <b>HTML Templates</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الـ Shadow DOM؟",
+        "a": "DOM tree معزول داخل عنصر بحيث الـ styles والـ scripts ما تتأثرش بالخارج. يستخدم في Web Components."
+      },
+      {
+        "l": "m",
+        "q": "ما هو &lt;template&gt;؟",
+        "a": "عنصر HTML يحمل markup مخفي حتى يتم تفعيله في JS عبر <code>document.importNode</code> أو <code>cloneNode</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي الـ Microdata؟",
+        "a": "طريقة لإضافة semantic data للصفحة عبر <code>itemscope</code>, <code>itemtype</code>, <code>itemprop</code>. تستخدم للـ SEO و Schema.org."
+      },
+      {
+        "l": "m",
+        "q": "ما هو download attribute في &lt;a&gt;؟",
+        "a": "يجبر المتصفح على تنزيل الملف بدل من فتحه: <code>&lt;a href=\"file.pdf\" download&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما الفرق بين novalidate و formnovalidate؟",
+        "a": "<b>novalidate</b> على form بيعطل validation كامل. <b>formnovalidate</b> على submit button بيعطل validation لهذا submit بس."
+      },
+      {
+        "l": "m",
+        "q": "ما هي pattern attribute؟",
+        "a": "تستخدم regex للتحقق من شكل الـ input مثل <code>&lt;input pattern=\"[0-9]{5}\"&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الفرق بين autocomplete=on و off؟",
+        "a": "<b>on</b> يسمح للمتصفح بحفظ واقتراح القيم السابقة. <b>off</b> يمنع ذلك (مفيد لحقول حساسة كـ passwords)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو tabindex؟",
+        "a": "يحدد ترتيب الوصول للعناصر بالـ Tab. <b>tabindex=\"0\"</b> يضيفه للترتيب الطبيعي، <b>-1</b> يخرجه، <b>قيمة موجبة</b> ترتيب مخصص."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Server-Sent Events؟",
+        "a": "تقنية تسمح للسيرفر بإرسال updates للعميل عبر HTTP اتجاه واحد، عبر <code>EventSource</code> API. أبسط من WebSockets للـ updates."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ WebSockets؟",
+        "a": "بروتوكول للاتصال ثنائي الاتجاه (full-duplex) بين العميل والسيرفر عبر اتصال واحد دائم. مناسب للتطبيقات الحية كالشات."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Progressive Enhancement و Graceful Degradation؟",
+        "a": "<b>Progressive Enhancement</b> ابدأ بالأساسيات وأضف ميزات للمتصفحات المتقدمة. <b>Graceful Degradation</b> ابدأ بكل الميزات وضمن fallback للقديمة."
+      },
+      {
+        "l": "a",
+        "q": "ما هو CORS وعلاقته بـ HTML؟",
+        "a": "Cross-Origin Resource Sharing، يسمح بتحميل موارد من domains أخرى عبر <code>crossorigin</code> attribute في &lt;script&gt; و &lt;img&gt; و &lt;link&gt;."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Subresource Integrity (SRI)؟",
+        "a": "التحقق من أن الموارد الخارجية لم تُعدل عبر hash: <code>&lt;script src=\"...\" integrity=\"sha384-...\" crossorigin=\"anonymous\"&gt;</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Content Security Policy (CSP)؟",
+        "a": "meta tag أو HTTP header يحدد المصادر المسموحة للسكريبتات والصور والـ styles. يحمي من XSS attacks."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Geolocation API؟",
+        "a": "<code>navigator.geolocation.getCurrentPosition()</code> للحصول على موقع المستخدم بإذنه. تتطلب HTTPS."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Service Workers؟",
+        "a": "scripts تعمل في الخلفية بمعزل عن الصفحة لتفعيل ميزات مثل offline support, push notifications, background sync. أساس PWA."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ PWA؟",
+        "a": "Progressive Web Apps، تطبيقات ويب تعمل offline، قابلة للتثبيت، وسريعة. تتطلب: HTTPS, Manifest, Service Worker."
+      },
+      {
+        "l": "a",
+        "q": "ما هو manifest.json في PWA؟",
+        "a": "ملف JSON يصف التطبيق (الاسم، الأيقونات، theme color، start_url) ويسمح بتثبيت التطبيق على الجهاز."
+      },
+      {
+        "l": "a",
+        "q": "ما هو preload و prefetch؟",
+        "a": "<b>preload</b> تحميل مبكر لمورد مهم للصفحة الحالية. <b>prefetch</b> تحميل مورد للصفحة التالية المتوقعة."
+      },
+      {
+        "l": "a",
+        "q": "ما هو dns-prefetch و preconnect؟",
+        "a": "<b>dns-prefetch</b> حل DNS مبكراً للدومين. <b>preconnect</b> يحل DNS + يبني TCP + TLS handshake مبكراً."
+      },
+      {
+        "l": "a",
+        "q": "ما الفرق بين innerHTML و innerText و textContent؟",
+        "a": "<b>innerHTML</b> يقرأ/يكتب HTML markup. <b>innerText</b> يقرأ النص المرئي (يحترم CSS). <b>textContent</b> يقرأ كل النصوص حتى المخفية، أسرع وأكثر أماناً."
+      },
+      {
+        "l": "a",
+        "q": "ما هي مخاطر innerHTML؟",
+        "a": "عرضة لـ <b>XSS attacks</b> لو حُقن HTML من مصدر غير موثوق. الحل: استخدم <code>textContent</code> أو sanitize الـ input."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ HTML5 Drag and Drop API؟",
+        "a": "تتيح سحب وإفلات العناصر عبر events: <code>dragstart, dragover, drop, dragend</code>. تحتاج <code>draggable=\"true\"</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو hidden attribute؟",
+        "a": "يخفي العنصر من العرض ومن الـ accessibility tree، يعادل <code>display:none</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما الفرق بين hidden و visibility:hidden و display:none؟",
+        "a": "<b>hidden</b> attribute يخفي بالكامل. <b>display:none</b> يخفي ويزيل من الـ flow. <b>visibility:hidden</b> يخفي بصرياً لكن يحتفظ بالمكان."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Intersection Observer API؟",
+        "a": "API لمراقبة تقاطع عنصر مع viewport بكفاءة عالية. تستخدم لـ lazy loading, infinite scroll, animations on scroll."
+      },
+      {
+        "l": "a",
+        "q": "ما هو المقصود بـ FOUC؟",
+        "a": "<b>Flash of Unstyled Content</b>، ظهور المحتوى بدون تنسيق لحظياً قبل تحميل CSS. يُحل بوضع CSS في الـ &lt;head&gt;."
+      },
+      {
+        "l": "a",
+        "q": "ما هو الـ Critical Rendering Path؟",
+        "a": "الخطوات اللي يقوم بها المتصفح لعرض الصفحة: <b>HTML→DOM, CSS→CSSOM, Render Tree, Layout, Paint, Composite</b>."
+      }
+    ]
+  },
+  {
+    "id": "css",
+    "ar": "CSS",
+    "en": "Cascading Style Sheets",
+    "icon": "🎨",
+    "color": "#3b82f6",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هو CSS؟",
+        "a": "<b>Cascading Style Sheets</b>، لغة لتنسيق صفحات الويب وتحديد كيفية ظهور عناصر HTML."
+      },
+      {
+        "l": "b",
+        "q": "ما هي طرق إضافة CSS؟",
+        "a": "<b>Inline</b>: داخل العنصر بـ style. <b>Internal</b>: داخل &lt;style&gt; في الـ head. <b>External</b>: ملف منفصل عبر &lt;link&gt;."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ Selectors في CSS؟",
+        "a": "<b>Element</b> (div), <b>Class</b> (.cls), <b>ID</b> (#id), <b>Attribute</b> ([type=text]), <b>Pseudo-class</b> (:hover), <b>Pseudo-element</b> (::before)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين class و id selector في CSS؟",
+        "a": "<b>.class</b> ممكن يتكرر، أولوية أقل (10). <b>#id</b> فريد، أولوية أعلى (100)."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Box Model في CSS؟",
+        "a": "كل عنصر مكون من 4 طبقات: <b>Content → Padding → Border → Margin</b>. تتحكم في حجم العنصر."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين box-sizing: content-box و border-box؟",
+        "a": "<b>content-box</b> (افتراضي): width = content فقط. <b>border-box</b>: width = content + padding + border."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين margin و padding؟",
+        "a": "<b>padding</b> المسافة داخل الـ border (بين content والـ border). <b>margin</b> المسافة خارج الـ border (بين العنصر والعناصر الأخرى)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي وحدات القياس في CSS؟",
+        "a": "<b>Absolute</b>: px, pt, cm. <b>Relative</b>: %, em, rem, vw, vh, vmin, vmax."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين em و rem؟",
+        "a": "<b>em</b> نسبة من حجم خط الـ parent. <b>rem</b> نسبة من حجم خط الـ root (html)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين vh و vw؟",
+        "a": "<b>vh</b>: 1% من ارتفاع viewport. <b>vw</b>: 1% من عرض viewport."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ position values؟",
+        "a": "<b>static</b> افتراضي. <b>relative</b> نسبة لمكانه الأصلي. <b>absolute</b> نسبة لأقرب parent positioned. <b>fixed</b> نسبة للـ viewport. <b>sticky</b> hybrid."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين position: absolute و fixed؟",
+        "a": "<b>absolute</b> نسبة لأقرب ancestor عنده position غير static. <b>fixed</b> نسبة للـ viewport ولا يتحرك مع scroll."
+      },
+      {
+        "l": "b",
+        "q": "ما هو position: sticky؟",
+        "a": "يبدأ relative ويتحول لـ fixed لما يوصل لـ scroll position معين."
+      },
+      {
+        "l": "b",
+        "q": "ما هو z-index؟",
+        "a": "يحدد ترتيب العناصر على المحور Z (للأمام/الخلف). يعمل فقط مع العناصر اللي عندها position غير static."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين display: none و visibility: hidden؟",
+        "a": "<b>display:none</b> يخفي ويزيل من الـ layout (لا يأخذ مساحة). <b>visibility:hidden</b> يخفي لكن يحتفظ بالمساحة."
+      },
+      {
+        "l": "b",
+        "q": "ما هي قيم display؟",
+        "a": "block, inline, inline-block, none, flex, grid, table, list-item."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين block, inline, inline-block؟",
+        "a": "<b>block</b> يأخذ سطر كامل، يقبل width/height. <b>inline</b> بحجم المحتوى، لا يقبل width/height. <b>inline-block</b> inline لكن يقبل width/height."
+      },
+      {
+        "l": "b",
+        "q": "ما هي pseudo-classes؟",
+        "a": "حالات خاصة للعنصر مثل <code>:hover</code>, <code>:focus</code>, <code>:active</code>, <code>:nth-child</code>, <code>:not()</code>, <code>:checked</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي pseudo-elements؟",
+        "a": "عناصر افتراضية تُنشأ بـ CSS مثل <code>::before</code>, <code>::after</code>, <code>::first-line</code>, <code>::first-letter</code>, <code>::placeholder</code>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين :hover و :focus؟",
+        "a": "<b>:hover</b> عند تمرير الماوس فوق العنصر. <b>:focus</b> لما يكون العنصر متاحاً للتفاعل (مثل input مختار)."
+      },
+      {
+        "l": "b",
+        "q": "ما هو CSS Specificity؟",
+        "a": "نظام أولويات يحدد أي rule يطبق لو في تعارض. الترتيب: <b>inline (1000) > id (100) > class/attribute/pseudo-class (10) > element (1)</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو !important؟",
+        "a": "يجعل الـ rule له أولوية عظمى يتغلب على specificity. يجب تجنبه قدر الإمكان لصعوبة الـ override."
+      },
+      {
+        "l": "b",
+        "q": "ما هو الفرق بين Inheritance و Cascade؟",
+        "a": "<b>Inheritance</b> توارث الخصائص من parent (مثل color). <b>Cascade</b> تطبيق الـ rules حسب الأولوية لما تتعارض."
+      },
+      {
+        "l": "b",
+        "q": "ما هي خصائص النص في CSS؟",
+        "a": "color, font-family, font-size, font-weight, font-style, text-align, text-decoration, line-height, letter-spacing, text-transform."
+      },
+      {
+        "l": "b",
+        "q": "ما هي قيم text-align؟",
+        "a": "left, right, center, justify, start, end."
+      },
+      {
+        "l": "b",
+        "q": "ما هي قيم text-transform؟",
+        "a": "none, uppercase, lowercase, capitalize."
+      },
+      {
+        "l": "b",
+        "q": "ما هي قيم font-weight؟",
+        "a": "normal (400), bold (700), أو رقم 100-900."
+      },
+      {
+        "l": "b",
+        "q": "ما هي طرق توسيط عنصر أفقياً؟",
+        "a": "<b>margin: 0 auto</b> للـ block. <b>text-align: center</b> للـ inline. <b>display:flex; justify-content:center</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي طرق توسيط عنصر رأسياً وأفقياً؟",
+        "a": "<b>display:flex; justify-content:center; align-items:center</b>. أو <b>display:grid; place-items:center</b>. أو <b>position+transform</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Flexbox؟",
+        "a": "نظام layout أحادي البعد (صف أو عمود) لتوزيع المساحة بين العناصر. يفعل بـ <code>display: flex</code> على الـ parent."
+      },
+      {
+        "l": "m",
+        "q": "ما هي خصائص flex container؟",
+        "a": "flex-direction, flex-wrap, justify-content, align-items, align-content, gap, flex-flow."
+      },
+      {
+        "l": "m",
+        "q": "ما هي خصائص flex items؟",
+        "a": "order, flex-grow, flex-shrink, flex-basis, flex (shorthand), align-self."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين justify-content و align-items؟",
+        "a": "<b>justify-content</b> توزيع على المحور الرئيسي (main axis). <b>align-items</b> توزيع على المحور المعاكس (cross axis)."
+      },
+      {
+        "l": "m",
+        "q": "ما هي قيم justify-content؟",
+        "a": "flex-start, flex-end, center, space-between, space-around, space-evenly."
+      },
+      {
+        "l": "m",
+        "q": "ما هي flex-grow و flex-shrink و flex-basis؟",
+        "a": "<b>flex-grow</b> نسبة الزيادة في المساحة الفائضة. <b>flex-shrink</b> نسبة التقلص لو ضاقت المساحة. <b>flex-basis</b> الحجم الأولي قبل التوزيع."
+      },
+      {
+        "l": "m",
+        "q": "ما هو CSS Grid؟",
+        "a": "نظام layout ثنائي الأبعاد (صفوف وأعمدة) لتصميم layouts معقدة. يفعل بـ <code>display: grid</code>."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Flexbox و Grid؟",
+        "a": "<b>Flexbox</b> أحادي البعد (صف أو عمود)، content-first. <b>Grid</b> ثنائي البعد، layout-first."
+      },
+      {
+        "l": "m",
+        "q": "ما هي grid-template-columns و grid-template-rows؟",
+        "a": "تحدد عدد وأحجام الأعمدة والصفوف. مثال: <code>grid-template-columns: 1fr 2fr 1fr</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي وحدة fr في Grid؟",
+        "a": "وحدة كسرية (fraction)، تقسم المساحة المتاحة بنسب. <code>1fr 2fr</code> يعني نسبة 1:2."
+      },
+      {
+        "l": "m",
+        "q": "ما هي minmax() في Grid؟",
+        "a": "دالة تحدد حد أدنى وأقصى للأعمدة/الصفوف. <code>minmax(200px, 1fr)</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي auto-fit و auto-fill؟",
+        "a": "تستخدم مع <code>repeat()</code> لإنشاء أعمدة تلقائية. <b>auto-fill</b> ينشئ أعمدة فاضية. <b>auto-fit</b> يطوي الفاضية."
+      },
+      {
+        "l": "m",
+        "q": "ما هي gap في Grid/Flex؟",
+        "a": "المسافة بين العناصر داخل grid/flex container. shorthand لـ <code>row-gap</code> و <code>column-gap</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي الـ Media Queries؟",
+        "a": "شروط لتطبيق CSS بناءً على خصائص الجهاز مثل العرض. <code>@media (max-width: 768px) { ... }</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Mobile-First Design؟",
+        "a": "تصميم البداية للموبايل ثم استخدام media queries (min-width) للأحجام الأكبر. أفضل للأداء."
+      },
+      {
+        "l": "m",
+        "q": "ما هي common breakpoints؟",
+        "a": "Mobile: 320-480px, Tablet: 768px, Laptop: 1024px, Desktop: 1280px+."
+      },
+      {
+        "l": "m",
+        "q": "ما هو CSS Variables (Custom Properties)؟",
+        "a": "متغيرات CSS تُعرف بـ <code>--name: value</code> وتُستخدم بـ <code>var(--name)</code>. dynamic وقابلة للتغيير بـ JS."
+      },
+      {
+        "l": "m",
+        "q": "ما هي transitions؟",
+        "a": "تأثيرات تدريجية لتغيير القيم. <code>transition: property duration timing-function delay</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي animations؟",
+        "a": "حركات معقدة باستخدام <code>@keyframes</code> و <code>animation</code> property."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين transition و animation؟",
+        "a": "<b>transition</b> بسيطة بين حالتين، تحتاج trigger. <b>animation</b> معقدة بـ keyframes متعددة، تشتغل تلقائي."
+      },
+      {
+        "l": "m",
+        "q": "ما هي قيم animation properties؟",
+        "a": "animation-name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state."
+      },
+      {
+        "l": "m",
+        "q": "ما هي transform property؟",
+        "a": "تغيير شكل ومكان العنصر بدون التأثير على الـ layout. <code>translate, rotate, scale, skew, matrix</code>."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين translate و position؟",
+        "a": "<b>translate</b> أسرع (GPU)، لا يؤثر على الـ layout. <b>position</b> يؤثر على الـ layout ويسبب reflow."
+      },
+      {
+        "l": "m",
+        "q": "ما هي خصائص الـ Background؟",
+        "a": "background-color, background-image, background-repeat, background-position, background-size, background-attachment, background-origin, background-clip."
+      },
+      {
+        "l": "m",
+        "q": "ما هي قيم background-size؟",
+        "a": "<b>cover</b> يغطي كامل العنصر. <b>contain</b> يحتوي الصورة كاملة. <b>auto</b> الحجم الطبيعي. أو قيم محددة (px/%)."
+      },
+      {
+        "l": "m",
+        "q": "ما هي linear-gradient و radial-gradient؟",
+        "a": "<b>linear-gradient</b> تدرج خطي. <b>radial-gradient</b> تدرج دائري. تستخدم في background-image."
+      },
+      {
+        "l": "m",
+        "q": "ما هو overflow وقيمه؟",
+        "a": "يتحكم في المحتوى الزائد عن العنصر: <b>visible</b> (افتراضي), <b>hidden</b>, <b>scroll</b>, <b>auto</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما الفرق بين overflow:auto و overflow:scroll؟",
+        "a": "<b>auto</b> يظهر scrollbar فقط لو زاد المحتوى. <b>scroll</b> يظهر scrollbar دائماً."
+      },
+      {
+        "l": "m",
+        "q": "ما هي أنواع الـ floats؟",
+        "a": "<b>left, right, none, inherit</b>. تستخدم لتعويم العناصر، نادراً تستخدم اليوم بسبب Flexbox/Grid."
+      },
+      {
+        "l": "m",
+        "q": "ما هو clearfix؟",
+        "a": "تقنية لمنع الـ container من collapse بسبب الـ floats باستخدام <code>::after { content:''; display:table; clear:both; }</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي pseudo-class :nth-child؟",
+        "a": "تختار العناصر بناءً على ترتيبها. <code>:nth-child(odd)</code>, <code>:nth-child(2n+1)</code>, <code>:nth-child(3)</code>."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين :nth-child و :nth-of-type؟",
+        "a": "<b>:nth-child</b> ترتيب بين كل الأخوة. <b>:nth-of-type</b> ترتيب بين الأخوة من نفس النوع."
+      },
+      {
+        "l": "m",
+        "q": "ما هو الفرق بين > و ~ و +؟",
+        "a": "<b>A > B</b> direct child. <b>A + B</b> adjacent sibling مباشر. <b>A ~ B</b> general siblings."
+      },
+      {
+        "l": "a",
+        "q": "ما هي CSS Stacking Context؟",
+        "a": "مجموعة من العناصر مرتبة على محور Z. تنشأ بـ position+z-index, opacity<1, transform, filter. z-index لا يخرج خارج stacking context."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Reflow و Repaint؟",
+        "a": "<b>Reflow</b> إعادة حساب الـ layout (مكلف جداً). <b>Repaint</b> إعادة الرسم بدون تغيير layout. تجنب reflow للأداء."
+      },
+      {
+        "l": "a",
+        "q": "ما هي خصائص تسبب Reflow؟",
+        "a": "width, height, padding, margin, border, position, top/left, font-size, display, overflow."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ GPU-accelerated properties؟",
+        "a": "<b>transform</b> و <b>opacity</b> فقط، لذلك يفضل استخدامها للـ animations بدل من تغيير position."
+      },
+      {
+        "l": "a",
+        "q": "ما هو will-change؟",
+        "a": "تعطي إشارة للمتصفح أن العنصر سيتغير، فيقوم بتحسينات مسبقة. استخدمه باعتدال."
+      },
+      {
+        "l": "a",
+        "q": "ما هي contain property؟",
+        "a": "تخبر المتصفح أن العنصر معزول، فيمكن تحسين rendering. <code>contain: layout paint size</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي CSS Modules؟",
+        "a": "نظام يجعل CSS class names local-scoped لتجنب التعارضات. شائع في React/Vue."
+      },
+      {
+        "l": "a",
+        "q": "ما هو BEM؟",
+        "a": "<b>Block Element Modifier</b>، منهجية لتسمية الـ classes: <code>.block__element--modifier</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي SASS/SCSS؟",
+        "a": "CSS preprocessors تضيف ميزات مثل <b>variables, nesting, mixins, functions, partials, inheritance</b>."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين SASS و LESS؟",
+        "a": "<b>SASS</b> Ruby (قديماً)/Dart، أقوى وأشهر. <b>LESS</b> JavaScript-based، أبسط syntax. كلاهما يدعم variables, mixins, nesting."
+      },
+      {
+        "l": "a",
+        "q": "ما هي mixins في SCSS؟",
+        "a": "كتلة CSS قابلة لإعادة الاستخدام عبر <code>@mixin</code> و <code>@include</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي @extend في SCSS؟",
+        "a": "وراثة properties من selector آخر دون تكرار الكود."
+      },
+      {
+        "l": "a",
+        "q": "ما هي placeholder selectors في SCSS؟",
+        "a": "selectors تبدأ بـ <code>%</code>، تستخدم فقط مع <code>@extend</code> ولا تظهر في output."
+      },
+      {
+        "l": "a",
+        "q": "ما هي CSS Houdini؟",
+        "a": "مجموعة APIs منخفضة المستوى للوصول لـ CSS engine، مثل Paint Worklet, Layout Worklet, Properties API."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Subgrid؟",
+        "a": "ميزة في Grid تسمح للـ child grid بوراثة الـ tracks من الـ parent grid."
+      },
+      {
+        "l": "a",
+        "q": "ما هي container queries؟",
+        "a": "تطبيق styles بناءً على حجم الـ container بدل من viewport: <code>@container (min-width: 400px) {...}</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي :is() و :where()؟",
+        "a": "functions تأخذ قائمة selectors. <b>:is()</b> ترفع specificity. <b>:where()</b> specificity = 0."
+      },
+      {
+        "l": "a",
+        "q": "ما هي :has() pseudo-class؟",
+        "a": "parent selector، تختار عنصر بناءً على الأطفال: <code>div:has(p)</code> يختار div فيها p."
+      },
+      {
+        "l": "a",
+        "q": "ما هو aspect-ratio property؟",
+        "a": "يحدد نسبة العرض للارتفاع: <code>aspect-ratio: 16/9</code>. مفيد للصور والفيديو."
+      },
+      {
+        "l": "a",
+        "q": "ما هو object-fit؟",
+        "a": "يتحكم في كيفية ملء الـ &lt;img&gt; أو &lt;video&gt; لأبعاده. قيم: fill, contain, cover, none, scale-down."
+      },
+      {
+        "l": "a",
+        "q": "ما هو clip-path؟",
+        "a": "يقص العنصر بشكل معين (دائرة، مضلع). <code>clip-path: circle(50%)</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي filter property؟",
+        "a": "تطبق تأثيرات بصرية: blur, brightness, contrast, grayscale, sepia, drop-shadow, saturate, hue-rotate."
+      },
+      {
+        "l": "a",
+        "q": "ما هو backdrop-filter؟",
+        "a": "يطبق filter على الخلفية خلف العنصر، يستخدم لتأثيرات الـ glassmorphism."
+      },
+      {
+        "l": "a",
+        "q": "ما هي قيم cursor؟",
+        "a": "default, pointer, text, wait, help, not-allowed, move, grab, grabbing, crosshair, zoom-in/out."
+      },
+      {
+        "l": "a",
+        "q": "ما هي pointer-events؟",
+        "a": "تتحكم في تفاعل العنصر مع الماوس. <code>pointer-events: none</code> يعطل كل التفاعلات."
+      },
+      {
+        "l": "a",
+        "q": "ما هو user-select؟",
+        "a": "يتحكم في إمكانية تحديد النص. <code>user-select: none</code> يمنع التحديد."
+      },
+      {
+        "l": "a",
+        "q": "ما هو scroll-behavior؟",
+        "a": "<code>scroll-behavior: smooth</code> يفعل scroll سلس عند الانتقال للـ anchors."
+      },
+      {
+        "l": "a",
+        "q": "ما هي scroll-snap؟",
+        "a": "تجبر الـ scroll على التوقف عند نقاط محددة. <code>scroll-snap-type</code> على parent و <code>scroll-snap-align</code> على children."
+      }
+    ]
+  },
+  {
+    "id": "js",
+    "ar": "JavaScript",
+    "en": "JavaScript Core",
+    "icon": "⚡",
+    "color": "#f59e0b",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هي JavaScript؟",
+        "a": "لغة برمجة عالية المستوى، interpreted, dynamically typed، تُستخدم في تطوير الويب client-side و server-side (Node.js)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي أنواع البيانات في JavaScript؟",
+        "a": "<b>Primitives</b>: String, Number, Boolean, Null, Undefined, Symbol, BigInt. <b>Reference</b>: Object, Array, Function."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين var و let و const؟",
+        "a": "<b>var</b> function-scoped, hoisted, قابل للتعديل. <b>let</b> block-scoped, قابل للتعديل. <b>const</b> block-scoped, ثابت بعد التعريف."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Hoisting؟",
+        "a": "رفع تعريفات المتغيرات والدوال لأعلى الـ scope عند الـ compilation. <b>var</b> ترفع بـ undefined، <b>let/const</b> ترفع لكن في TDZ."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Temporal Dead Zone (TDZ)؟",
+        "a": "الفترة بين دخول الـ scope وتعريف المتغير بـ let/const. الوصول فيها يسبب ReferenceError."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين == و ===؟",
+        "a": "<b>==</b> يقارن القيم مع type coercion. <b>===</b> strict equality، يقارن القيم والأنواع بدون تحويل."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين null و undefined؟",
+        "a": "<b>undefined</b> المتغير معرف بدون قيمة (افتراضي). <b>null</b> قيمة مقصودة تشير للفراغ. <code>typeof null === 'object'</code> (bug تاريخي)."
+      },
+      {
+        "l": "b",
+        "q": "ما هو NaN؟",
+        "a": "<b>Not a Number</b>، نتيجة عمليات حسابية فاشلة. <code>NaN !== NaN</code>. تتحقق منه بـ <code>isNaN()</code> أو <code>Number.isNaN()</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي القيم الـ Falsy في JS؟",
+        "a": "<b>false, 0, -0, 0n, '', null, undefined, NaN</b>. أي قيمة أخرى truthy."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين let و var في الـ for loop؟",
+        "a": "<b>let</b> ينشئ scope جديد لكل iteration (مفيد للـ closures). <b>var</b> ينشئ متغير واحد مشترك."
+      },
+      {
+        "l": "b",
+        "q": "ما هو typeof؟",
+        "a": "operator يرجع نوع المتغير كنص: <code>typeof x</code>. القيم: 'string', 'number', 'boolean', 'object', 'function', 'undefined', 'symbol', 'bigint'."
+      },
+      {
+        "l": "b",
+        "q": "كيف نحول String إلى Number؟",
+        "a": "<code>Number(s)</code>, <code>parseInt(s)</code>, <code>parseFloat(s)</code>, <code>+s</code>, <code>s * 1</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Template Literals؟",
+        "a": "strings مع backticks تدعم interpolation وmultiline: <code>`Hello ${name}`</code>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Array و Object؟",
+        "a": "<b>Array</b> قائمة مرتبة بـ index رقمي. <b>Object</b> مجموعة key-value pairs."
+      },
+      {
+        "l": "b",
+        "q": "ما هي طرق إنشاء Object؟",
+        "a": "<b>Literal</b>: <code>{}</code>. <b>Constructor</b>: <code>new Object()</code>. <b>Object.create()</b>. <b>Class</b>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين for...in و for...of؟",
+        "a": "<b>for...in</b> للـ keys (للـ objects). <b>for...of</b> للـ values (للـ iterables مثل arrays, strings)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي طرق Array الشائعة؟",
+        "a": "push, pop, shift, unshift, slice, splice, concat, join, reverse, sort, indexOf, includes, find, filter, map, reduce, forEach."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين slice و splice؟",
+        "a": "<b>slice</b> يرجع نسخة من جزء من الـ array بدون تعديل الأصلي. <b>splice</b> يعدل الـ array (إضافة/حذف عناصر)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين map و forEach؟",
+        "a": "<b>map</b> يرجع array جديد. <b>forEach</b> ينفذ بدون إرجاع قيمة (undefined)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي filter؟",
+        "a": "ترجع array جديد بالعناصر اللي تحقق شرط معين."
+      },
+      {
+        "l": "b",
+        "q": "ما هي reduce؟",
+        "a": "تختزل array لقيمة واحدة عبر تطبيق دالة على كل عنصر. <code>arr.reduce((acc, cur) => acc + cur, 0)</code>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين find و filter؟",
+        "a": "<b>find</b> يرجع أول عنصر يحقق الشرط (أو undefined). <b>filter</b> يرجع كل العناصر اللي تحقق الشرط (array)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي some و every؟",
+        "a": "<b>some</b> ترجع true لو عنصر واحد على الأقل يحقق الشرط. <b>every</b> ترجع true لو كل العناصر تحقق الشرط."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Spread Operator؟",
+        "a": "<code>...</code> ينشر عناصر array أو خصائص object: <code>[...arr1, ...arr2]</code>, <code>{...obj1, ...obj2}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Rest Parameter؟",
+        "a": "<code>...args</code> يجمع باقي parameters في array: <code>function f(a, ...rest) {}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Destructuring؟",
+        "a": "استخراج قيم من arrays/objects لمتغيرات: <code>const {a, b} = obj</code>, <code>const [x, y] = arr</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Arrow Functions؟",
+        "a": "syntax مختصر للدوال: <code>(a, b) => a + b</code>. ليس لها <b>this</b> خاص (ترث من الـ enclosing scope)."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Arrow Function و Regular Function؟",
+        "a": "<b>Arrow</b>: لا this/arguments/new.target، لا يمكن استخدامها كـ constructor. <b>Regular</b>: لها this خاص، يمكن استخدامها كـ constructor."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Default Parameter؟",
+        "a": "قيمة افتراضية للـ parameter لو لم يُمرر: <code>function f(x = 10) {}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي String methods الشائعة؟",
+        "a": "length, charAt, indexOf, slice, substring, split, replace, toLowerCase, toUpperCase, trim, includes, startsWith, endsWith."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين slice و substring؟",
+        "a": "<b>slice</b> يقبل أرقام سالبة (من النهاية). <b>substring</b> يحول الأرقام السالبة لـ 0."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Closure؟",
+        "a": "دالة بتتذكر الـ scope اللي اتعرفت فيه حتى لو انفذت في scope تاني. تسمح بـ data privacy وحفظ state."
+      },
+      {
+        "l": "m",
+        "q": "اعطني مثال على Closure؟",
+        "code": "function counter() {\n  let count = 0;\n  return () => ++count;\n}\nconst c = counter();\nc(); // 1\nc(); // 2",
+        "a": "الدالة الداخلية بتحتفظ بـ <code>count</code> حتى بعد انتهاء <code>counter</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو this في JavaScript؟",
+        "a": "يشير للـ context الحالي. قيمته تعتمد على كيفية الاستدعاء: في method = الـ object، في function عادية = window/undefined (strict)، arrow = الـ enclosing scope."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين call و apply و bind؟",
+        "a": "<b>call</b> ينفذ الدالة مع this وargs مفصولة. <b>apply</b> نفس call لكن args في array. <b>bind</b> يرجع دالة جديدة بـ this مربوط."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Prototype؟",
+        "a": "كائن يحتوي على properties/methods مشتركة بين كل الـ instances من نفس الـ constructor. الـ inheritance في JS يعتمد عليه."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Prototype Chain؟",
+        "a": "سلسلة من الـ prototypes اللي يبحث فيها JS عن property لما لا يجدها في الـ object نفسه."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين __proto__ و prototype؟",
+        "a": "<b>prototype</b> property على الـ Constructor function. <b>__proto__</b> reference للـ prototype في كل instance."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Event Loop؟",
+        "a": "الآلية اللي تخلي JS (single-threaded) ينفذ async code. ينقل callbacks من Queue للـ Call Stack لما يكون فاضي."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Microtask و Macrotask؟",
+        "a": "<b>Microtasks</b>: Promises, queueMicrotask، أولوية أعلى. <b>Macrotasks</b>: setTimeout, setInterval, I/O، تنفذ بعد كل الـ microtasks."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Callback؟",
+        "a": "دالة تُمرر كـ argument لدالة أخرى لتنفذ لاحقاً (sync أو async)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Callback Hell؟",
+        "a": "تداخل callbacks بشكل عميق يصعب قراءته وصيانته. الحل: Promises أو async/await."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Promise؟",
+        "a": "object يمثل نتيجة عملية async. حالاته: <b>pending, fulfilled, rejected</b>."
+      },
+      {
+        "l": "m",
+        "q": "كيف تنشئ Promise؟",
+        "code": "const p = new Promise((resolve, reject) => {\n  if (success) resolve(data);\n  else reject(err);\n});",
+        "a": "<code>new Promise((resolve, reject) => {})</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي then و catch و finally؟",
+        "a": "<b>then</b> handler للنجاح. <b>catch</b> للفشل. <b>finally</b> ينفذ في الحالتين."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Promise.all و Promise.race؟",
+        "a": "<b>Promise.all</b> ينجح لو كلهم نجحوا (يفشل بأول فشل). <b>Promise.race</b> يرجع أول نتيجة (نجاح أو فشل)."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Promise.allSettled؟",
+        "a": "تنتظر كل الـ promises (نجاح أو فشل) وترجع array بحالات كلهم."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Promise.any؟",
+        "a": "ترجع أول promise ينجح (تتجاهل الفاشلين). تفشل لو كلهم فشلوا (AggregateError)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو async/await؟",
+        "a": "syntax أنظف للـ Promises. <b>async</b> ترجع Promise. <b>await</b> ينتظر Promise يكتمل."
+      },
+      {
+        "l": "m",
+        "q": "كيف تتعامل مع errors في async/await؟",
+        "a": "باستخدام <code>try...catch</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي IIFE؟",
+        "a": "<b>Immediately Invoked Function Expression</b>: دالة تنفذ بمجرد تعريفها. <code>(function(){})()</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Higher-Order Functions؟",
+        "a": "دالة تأخذ دالة كـ parameter أو ترجع دالة. أمثلة: map, filter, reduce."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Pure Functions؟",
+        "a": "دالة بنفس الـ input ترجع نفس الـ output دائماً، بدون side effects."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Currying؟",
+        "a": "تحويل دالة بعدة arguments لسلسلة دوال كل واحدة بـ argument: <code>f(a)(b)(c)</code> بدل <code>f(a,b,c)</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Memoization؟",
+        "a": "تخزين نتائج الدوال للـ inputs المتكررة لتجنب إعادة الحساب."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Debounce؟",
+        "a": "تأخير تنفيذ الدالة حتى مرور وقت بدون استدعاءات. مفيد للـ search input."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Throttle؟",
+        "a": "تحديد عدد مرات تنفيذ الدالة في فترة زمنية. مفيد للـ scroll events."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Debounce و Throttle؟",
+        "a": "<b>Debounce</b> ينتظر توقف الاستدعاءات. <b>Throttle</b> يسمح بتنفيذ كل X ms."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Event Bubbling و Capturing؟",
+        "a": "<b>Bubbling</b> الحدث يصعد من target للـ root (افتراضي). <b>Capturing</b> ينزل من root للـ target."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Event Delegation؟",
+        "a": "إضافة listener واحد للـ parent بدل من كل child، يستفيد من bubbling. أفضل للأداء."
+      },
+      {
+        "l": "m",
+        "q": "ما هو e.preventDefault؟",
+        "a": "يمنع السلوك الافتراضي للحدث (مثل submit الـ form أو الانتقال للرابط)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو e.stopPropagation؟",
+        "a": "يمنع انتشار الحدث (bubbling/capturing)."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين addEventListener و onclick؟",
+        "a": "<b>addEventListener</b> يسمح بـ multiple handlers، يدعم capturing. <b>onclick</b> handler واحد فقط، يُكتب فوقه."
+      },
+      {
+        "l": "m",
+        "q": "ما هو DOM؟",
+        "a": "<b>Document Object Model</b>، تمثيل شجري لـ HTML يسمح للـ JS بالتفاعل مع الصفحة."
+      },
+      {
+        "l": "m",
+        "q": "ما هي طرق اختيار العناصر؟",
+        "a": "getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين querySelector و getElementById؟",
+        "a": "<b>getElementById</b> أسرع، بيجيب id فقط. <b>querySelector</b> أكثر مرونة (CSS selectors)، أبطأ شوية."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين HTMLCollection و NodeList؟",
+        "a": "<b>HTMLCollection</b> live (يتحدث تلقائياً). <b>NodeList</b> static في معظم الحالات. كلاهما array-like وليس array."
+      },
+      {
+        "l": "m",
+        "q": "كيف تحول NodeList لـ Array؟",
+        "a": "<code>Array.from(nodeList)</code> أو <code>[...nodeList]</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Generators؟",
+        "a": "دوال يمكن إيقافها واستئنافها. تُعرف بـ <code>function*</code> وتُنتج قيم بـ <code>yield</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Iterators؟",
+        "a": "objects تنفذ method <code>next()</code> اللي يرجع <code>{value, done}</code>. الـ iterables تنفذ <code>[Symbol.iterator]</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Symbols؟",
+        "a": "primitive type جديد في ES6، قيمته فريدة. تستخدم كـ keys مخفية في objects."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Map و Set؟",
+        "a": "<b>Map</b> key-value (keys من أي نوع، مرتبة). <b>Set</b> مجموعة قيم فريدة. كلاهما iterable."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Map و Object؟",
+        "a": "<b>Map</b> keys من أي نوع، مرتبة، size property، iterable مباشر. <b>Object</b> keys strings/symbols فقط."
+      },
+      {
+        "l": "a",
+        "q": "ما هي WeakMap و WeakSet؟",
+        "a": "نسخ من Map/Set لكن references للـ objects ضعيفة (يمكن garbage collected). تستخدم لمنع memory leaks."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Garbage Collection؟",
+        "a": "إدارة الذاكرة تلقائياً، الـ JS engine يحذف الـ objects اللي مفيش references لها."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Memory Leaks في JS؟",
+        "a": "احتفاظ بـ references لـ objects غير مستخدمة. أسبابها: global variables, forgotten timers, detached DOM, closures."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Web Workers؟",
+        "a": "threads خلفية تنفذ JS بمعزل عن الـ main thread. لا تصل للـ DOM. تتواصل بـ postMessage."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Service Workers؟",
+        "a": "workers خاصة تعمل كـ proxy بين التطبيق والشبكة، لتفعيل offline support والـ caching."
+      },
+      {
+        "l": "a",
+        "q": "ما هو fetch API؟",
+        "a": "API حديثة لعمل HTTP requests. ترجع Promise. <code>fetch(url).then(r => r.json())</code>."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين fetch و XMLHttpRequest؟",
+        "a": "<b>fetch</b> Promise-based, modern, أبسط. <b>XHR</b> callback-based, older, يدعم progress events بشكل أصلي."
+      },
+      {
+        "l": "a",
+        "q": "كيف تتعامل مع errors في fetch؟",
+        "a": "fetch ما يرفضش على HTTP errors (4xx, 5xx)، لازم تتحقق من <code>response.ok</code> يدوياً."
+      },
+      {
+        "l": "a",
+        "q": "ما هي AbortController؟",
+        "a": "للـ cancel للـ fetch requests. <code>const c = new AbortController(); fetch(url, {signal: c.signal}); c.abort();</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو CORS في الـ fetch؟",
+        "a": "Cross-Origin Resource Sharing. السيرفر لازم يرجع headers (مثل Access-Control-Allow-Origin) للسماح للـ requests من domains مختلفة."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين localStorage و sessionStorage؟",
+        "a": "<b>localStorage</b> دائم. <b>sessionStorage</b> ينمسح عند إغلاق التاب. كلاهما 5-10MB، client-only."
+      },
+      {
+        "l": "a",
+        "q": "ما هو JSON؟",
+        "a": "<b>JavaScript Object Notation</b>، صيغة لتبادل البيانات. methods: <code>JSON.stringify()</code>, <code>JSON.parse()</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو deep clone vs shallow clone؟",
+        "a": "<b>Shallow</b> ينسخ المستوى الأول، الـ nested objects shared. <b>Deep</b> ينسخ كل المستويات (طرق: structuredClone, JSON.parse(stringify), lodash)."
+      },
+      {
+        "l": "a",
+        "q": "كيف تعمل deep clone بدون مكتبات؟",
+        "a": "<code>structuredClone(obj)</code> (الأفضل). أو <code>JSON.parse(JSON.stringify(obj))</code> (محدود مع functions/Dates)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Object.freeze و Object.seal؟",
+        "a": "<b>freeze</b> يمنع التعديل والإضافة والحذف. <b>seal</b> يمنع الإضافة والحذف لكن يسمح بالتعديل."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Proxy؟",
+        "a": "object يلف object آخر للتحكم في عمليات الوصول/التعديل. مفيد للـ reactivity (مثل Vue 3)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Reflect API؟",
+        "a": "object فيه methods مرتبطة بـ Proxy traps (Reflect.get, Reflect.set, Reflect.has)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي ECMAScript؟",
+        "a": "المواصفة اللي تتبع JS، تصدر إصدارات سنوية (ES6=2015, ES2016, ES2017...)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Regular Expressions؟",
+        "a": "أنماط لمطابقة النصوص. <code>/pattern/flags</code>. methods: test, match, replace, search, split."
+      },
+      {
+        "l": "a",
+        "q": "ما هي flags في Regex؟",
+        "a": "<b>g</b> global. <b>i</b> case-insensitive. <b>m</b> multiline. <b>s</b> dotAll. <b>u</b> unicode. <b>y</b> sticky."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين function declaration و expression؟",
+        "a": "<b>Declaration</b>: <code>function f(){}</code> hoisted كاملة. <b>Expression</b>: <code>const f = function(){}</code> not hoisted."
+      },
+      {
+        "l": "a",
+        "q": "ما هي الـ Modules في JS؟",
+        "a": "<b>ES Modules</b>: import/export. <b>CommonJS</b>: require/module.exports (Node.js)."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين default export و named export؟",
+        "a": "<b>default</b> واحد لكل module، يستورد بأي اسم. <b>named</b> متعدد، لازم نفس الاسم أو استخدام as."
+      },
+      {
+        "l": "a",
+        "q": "ما هي dynamic imports؟",
+        "a": "<code>import('./module.js').then(m => ...)</code> لتحميل modules بشكل lazy، ترجع Promise."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Strict Mode؟",
+        "a": "<code>'use strict'</code> يفعل قواعد أصرم: لا undeclared variables، this = undefined في الدوال العادية، يمنع duplicate parameters."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Optional Chaining؟",
+        "a": "<code>?.</code> يصل للـ properties بأمان. لو null/undefined يرجع undefined بدل من خطأ."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Nullish Coalescing؟",
+        "a": "<code>??</code> يرجع الـ right لو الـ left null/undefined. مختلف عن <code>||</code> اللي يتعامل مع كل falsy."
+      }
+    ]
+  },
+  {
+    "id": "es",
+    "ar": "ES6+",
+    "en": "ECMAScript Modern Features",
+    "icon": "🚀",
+    "color": "#a855f7",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هي ES6؟",
+        "a": "<b>ECMAScript 2015</b>، أحد أكبر تحديثات JS، أضاف let/const, arrow functions, classes, modules, promises, template literals, destructuring."
+      },
+      {
+        "l": "b",
+        "q": "ما هي let و const؟",
+        "a": "<b>let</b> متغير block-scoped قابل للتعديل. <b>const</b> ثابت block-scoped لا يعاد تعيينه (لكن objects/arrays يمكن تعديل محتواها)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Template Literals؟",
+        "a": "strings بـ backticks تدعم interpolation وmultiline. <code>`Hello ${name}`</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Tagged Templates؟",
+        "a": "دوال تستقبل أجزاء template literal: <code>tag`Hello ${name}`</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Arrow Functions؟",
+        "a": "<code>(args) => expression</code>. بدون this/arguments خاصة، أقصر، تستخدم في callbacks."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Destructuring؟",
+        "a": "استخراج قيم من objects/arrays لمتغيرات: <code>const {a, b} = obj; const [x, y] = arr;</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Rest و Spread؟",
+        "a": "<b>Rest</b>: <code>...args</code> يجمع. <b>Spread</b>: <code>...arr</code> ينشر."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Default Parameters؟",
+        "a": "قيم افتراضية للـ parameters: <code>function f(x = 10) {}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Object Shorthand؟",
+        "a": "اختصار <code>{name: name}</code> لـ <code>{name}</code>. وللـ methods: <code>{f() {}}</code> بدل <code>{f: function() {}}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Computed Property Names؟",
+        "a": "استخدام expression كـ property name: <code>{[key]: value}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Classes في ES6؟",
+        "a": "syntactic sugar للـ prototype-based inheritance. <code>class A { constructor() {} method() {} }</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي extends و super؟",
+        "a": "<b>extends</b> للوراثة. <b>super</b> للوصول للـ parent class (constructor أو methods)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي static methods؟",
+        "a": "methods على الـ class نفسها لا الـ instance. <code>class A { static f() {} }</code> تستدعى <code>A.f()</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي getters و setters؟",
+        "a": "<code>get name() { return this._name; }</code> للقراءة، <code>set name(v)</code> للتعديل."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Modules في ES6؟",
+        "a": "نظام modules رسمي بـ <code>import</code> و <code>export</code>. كل module له scope خاص."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Promises؟",
+        "a": "object يمثل عملية async. حالات: pending, fulfilled, rejected. methods: then, catch, finally."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Symbols؟",
+        "a": "primitive type جديد، قيمته فريدة، مفيدة كـ keys مخفية في objects."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Iterators و Iterables؟",
+        "a": "<b>Iterable</b> object يحتوي على <code>[Symbol.iterator]</code>. <b>Iterator</b> object فيه method <code>next()</code> ترجع <code>{value, done}</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Generators؟",
+        "a": "دوال يمكن إيقافها واستئنافها. تعرف بـ <code>function*</code> وتنتج بـ <code>yield</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Map و Set؟",
+        "a": "<b>Map</b> key-value collection (أي نوع للـ keys). <b>Set</b> collection بقيم فريدة."
+      },
+      {
+        "l": "m",
+        "q": "ما هي WeakMap و WeakSet؟",
+        "a": "نسخ من Map/Set بـ references ضعيفة، تسمح للـ GC بحذف الـ objects."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Tail Call Optimization؟",
+        "a": "تحسين للدوال recursive لتجنب stack overflow. مدعومة في spec ES6 لكن غير مفعلة في معظم engines."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2016؟",
+        "a": "<b>Array.includes()</b>: تتحقق من وجود قيمة في array. <b>Exponentiation operator</b>: <code>2 ** 3</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2017؟",
+        "a": "<b>async/await</b>, <b>Object.entries()</b>, <b>Object.values()</b>, <b>String padStart/padEnd</b>, <b>trailing commas</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2018؟",
+        "a": "<b>Rest/Spread for objects</b>, <b>Async iteration</b> (for await...of), <b>Promise.finally</b>, <b>Regex improvements</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2019؟",
+        "a": "<b>Array.flat/flatMap</b>, <b>Object.fromEntries</b>, <b>String trimStart/trimEnd</b>, <b>Optional catch binding</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Array.flat؟",
+        "a": "تحول nested array لـ flat array. <code>[1,[2,[3]]].flat(2)</code> = <code>[1,2,3]</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Object.fromEntries؟",
+        "a": "تحول array of [key, value] لـ object. عكس <code>Object.entries</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2020؟",
+        "a": "<b>Optional Chaining ?.</b>, <b>Nullish Coalescing ??</b>, <b>BigInt</b>, <b>Promise.allSettled</b>, <b>globalThis</b>, <b>Dynamic import</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو BigInt؟",
+        "a": "primitive type لأرقام أكبر من <code>Number.MAX_SAFE_INTEGER</code>. <code>123n</code> أو <code>BigInt(123)</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو globalThis؟",
+        "a": "reference موحد للـ global object (window في browser, global في Node)."
+      },
+      {
+        "l": "m",
+        "q": "ما الجديد في ES2021؟",
+        "a": "<b>String.replaceAll</b>, <b>Promise.any</b>, <b>Logical assignment ||= &&= ??=</b>, <b>Numeric separators 1_000_000</b>, <b>WeakRef</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Logical Assignment Operators؟",
+        "a": "<b>||=</b> assign لو الحالي falsy. <b>&&=</b> assign لو truthy. <b>??=</b> assign لو nullish."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Numeric Separators؟",
+        "a": "استخدام <code>_</code> لقراءة الأرقام أسهل: <code>1_000_000</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما الجديد في ES2022؟",
+        "a": "<b>Top-level await</b>, <b>Class fields</b>, <b>Private methods #</b>, <b>Object.hasOwn</b>, <b>Array.at()</b>, <b>Error cause</b>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Top-level await؟",
+        "a": "استخدام <code>await</code> في top level من module بدون <code>async</code> function."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Private Class Fields؟",
+        "a": "خصائص خاصة بـ <code>#</code>: <code>class A { #count = 0; }</code>. مش accessible من برا الـ class."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Array.at؟",
+        "a": "الوصول للعناصر بـ index موجب أو سالب. <code>arr.at(-1)</code> آخر عنصر."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Object.hasOwn؟",
+        "a": "بديل أنظف لـ <code>hasOwnProperty</code>. <code>Object.hasOwn(obj, 'key')</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما الجديد في ES2023؟",
+        "a": "<b>Array findLast/findLastIndex</b>, <b>Array.toSorted/toReversed/toSpliced</b> (immutable), <b>Hashbang</b> grammar."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Immutable Array Methods؟",
+        "a": "<b>toSorted, toReversed, toSpliced, with</b>. ترجع نسخة جديدة بدون تعديل الأصلية."
+      },
+      {
+        "l": "a",
+        "q": "ما الجديد في ES2024؟",
+        "a": "<b>Object.groupBy</b>, <b>Map.groupBy</b>, <b>Promise.withResolvers</b>, <b>String.isWellFormed</b>, <b>RegExp v flag</b>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Object.groupBy؟",
+        "a": "تجمع عناصر array بناءً على دالة. <code>Object.groupBy(arr, x => x.type)</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Promise.withResolvers؟",
+        "a": "تنشئ Promise مع <code>resolve</code> و <code>reject</code> خارجيين: <code>const {promise, resolve, reject} = Promise.withResolvers()</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي async iteration؟",
+        "a": "<code>for await...of</code> للـ async iterables (Promises لكل قيمة)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي String.matchAll؟",
+        "a": "ترجع iterator بكل matches للـ regex مع capture groups."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Optional Catch Binding؟",
+        "a": "<code>try {} catch {}</code> بدون متغير الخطأ لو مش محتاجينه."
+      },
+      {
+        "l": "a",
+        "q": "ما هي String padStart/padEnd؟",
+        "a": "حشو string لطول محدد. <code>'5'.padStart(3, '0')</code> = <code>'005'</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Object.entries و Object.values؟",
+        "a": "<b>entries</b>: array من [key, value]. <b>values</b>: array من values."
+      },
+      {
+        "l": "a",
+        "q": "ما هي trailing commas؟",
+        "a": "السماح بفاصلة بعد آخر argument/parameter. مفيد للـ git diffs."
+      },
+      {
+        "l": "a",
+        "q": "ما هي String.raw؟",
+        "a": "tag function تعيد string بدون معالجة escape characters. <code>String.raw`\\n`</code> = <code>'\\n'</code>."
+      }
+    ]
+  },
+  {
+    "id": "ts",
+    "ar": "TypeScript",
+    "en": "TypeScript",
+    "icon": "🔷",
+    "color": "#06b6d4",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هي TypeScript؟",
+        "a": "superset من JavaScript يضيف static typing. تنتج JS بعد التجميع. تطورها Microsoft."
+      },
+      {
+        "l": "b",
+        "q": "لماذا نستخدم TypeScript؟",
+        "a": "<b>Type safety</b>, <b>better IDE support</b>, <b>early bug detection</b>, <b>self-documenting code</b>, <b>refactoring أسهل</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي الـ basic types؟",
+        "a": "<b>string, number, boolean, null, undefined, void, any, unknown, never, object, array, tuple, enum</b>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين any و unknown؟",
+        "a": "<b>any</b> يلغي type checking تماماً. <b>unknown</b> آمن، يجبرك على type checking قبل الاستخدام."
+      },
+      {
+        "l": "b",
+        "q": "ما هو never؟",
+        "a": "النوع اللي ما بيرجعش أبداً (دوال ترمي errors أو infinite loops)."
+      },
+      {
+        "l": "b",
+        "q": "ما هو void؟",
+        "a": "عدم وجود قيمة مرجعة، يستخدم لدوال لا ترجع شيء."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين void و undefined؟",
+        "a": "<b>void</b> للدوال اللي ما ترجعش حاجة. <b>undefined</b> قيمة فعلية."
+      },
+      {
+        "l": "b",
+        "q": "كيف تعرف array في TS؟",
+        "a": "<code>number[]</code> أو <code>Array&lt;number&gt;</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Tuple؟",
+        "a": "array بطول وأنواع محددة: <code>let t: [string, number] = ['a', 1]</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Enum؟",
+        "a": "مجموعة قيم مسماة. <code>enum Color { Red, Green, Blue }</code>. الافتراضي أرقام."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Type Aliases؟",
+        "a": "اسم بديل لنوع: <code>type ID = string | number;</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Interfaces؟",
+        "a": "عقد يحدد شكل object: <code>interface User { name: string; age: number; }</code>."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Interface و Type؟",
+        "a": "<b>Interface</b> قابلة للـ extension والدمج (declaration merging). <b>Type</b> مرنة أكثر (unions, intersections, primitives)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Optional Properties؟",
+        "a": "properties مش إجبارية بـ <code>?</code>: <code>{name: string; age?: number}</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Readonly Properties؟",
+        "a": "<code>readonly</code> تمنع التعديل بعد التعيين."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Union Types؟",
+        "a": "نوع يمكن أن يكون أحد عدة أنواع: <code>string | number</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Intersection Types؟",
+        "a": "دمج عدة أنواع: <code>A &amp; B</code> = خصائص الاثنين معاً."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Literal Types؟",
+        "a": "قيم محددة كـ types: <code>type Dir = 'left' | 'right'</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Type Assertions؟",
+        "a": "إخبار TS بنوع متغير: <code>value as string</code> أو <code>&lt;string&gt;value</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Type Inference؟",
+        "a": "TS يستنتج النوع تلقائياً: <code>let x = 5</code> → <code>number</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Generics؟",
+        "a": "types قابلة لإعادة الاستخدام مع أنواع مختلفة: <code>function f&lt;T&gt;(x: T): T { return x; }</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Generic Constraints؟",
+        "a": "تقييد الـ generic بـ <code>extends</code>: <code>&lt;T extends {length: number}&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Default Generic Types؟",
+        "a": "قيمة افتراضية للـ generic: <code>function f&lt;T = string&gt;(x: T) {}</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Utility Types؟",
+        "a": "types جاهزة في TS: <b>Partial, Required, Readonly, Pick, Omit, Record, Exclude, Extract, ReturnType, Parameters</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Partial؟",
+        "a": "يجعل كل properties optional: <code>Partial&lt;User&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Required؟",
+        "a": "يجعل كل properties إجبارية: <code>Required&lt;User&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Readonly؟",
+        "a": "يجعل كل properties readonly: <code>Readonly&lt;User&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Pick؟",
+        "a": "يختار properties محددة: <code>Pick&lt;User, 'name' | 'age'&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Omit؟",
+        "a": "يستبعد properties: <code>Omit&lt;User, 'password'&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Record؟",
+        "a": "ينشئ object type بـ keys و values محددة: <code>Record&lt;string, number&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Exclude و Extract؟",
+        "a": "<b>Exclude&lt;T, U&gt;</b> يحذف من T الأنواع اللي في U. <b>Extract&lt;T, U&gt;</b> يستخرج المشترك."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ReturnType؟",
+        "a": "يستخرج نوع الـ return من function: <code>ReturnType&lt;typeof f&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Parameters؟",
+        "a": "يستخرج types الـ parameters كـ tuple: <code>Parameters&lt;typeof f&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو NonNullable؟",
+        "a": "يستبعد null و undefined: <code>NonNullable&lt;string | null&gt;</code> = <code>string</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Type Guards؟",
+        "a": "دوال تضيق نوع المتغير: <code>typeof, instanceof, in, custom (x is Type)</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو instanceof guard؟",
+        "a": "يتحقق هل object instance من class معين: <code>x instanceof Date</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو in operator guard؟",
+        "a": "يتحقق من وجود property في object: <code>'name' in obj</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي User-Defined Type Guards؟",
+        "a": "function ترجع <code>x is Type</code>: <code>function isString(x): x is string { return typeof x === 'string'; }</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Discriminated Unions؟",
+        "a": "union types مع property مشترك (discriminant) لتمييز الأنواع: <code>{type: 'a', ...} | {type: 'b', ...}</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Decorators؟",
+        "a": "دوال تُطبق على classes/methods/properties لتعديل سلوكها. تحتاج <code>experimentalDecorators</code> في tsconfig."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Abstract Classes؟",
+        "a": "classes لا يمكن إنشاء instance منها مباشرة، تستخدم كـ base class: <code>abstract class A {}</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Access Modifiers؟",
+        "a": "<b>public</b> (افتراضي), <b>private</b> (داخل الـ class فقط), <b>protected</b> (الـ class والـ subclasses)."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين private و #private؟",
+        "a": "<b>private</b> TS فقط (compile-time). <b>#private</b> JS native (runtime)، آمن أكثر."
+      },
+      {
+        "l": "m",
+        "q": "ما هو tsconfig.json؟",
+        "a": "ملف إعدادات TypeScript. يحدد compiler options، الملفات المستهدفة، إلخ."
+      },
+      {
+        "l": "m",
+        "q": "ما هو strict mode في TS؟",
+        "a": "يفعل كل خيارات الـ strict checking: <b>strictNullChecks, noImplicitAny, strictFunctionTypes</b>، إلخ."
+      },
+      {
+        "l": "m",
+        "q": "ما هو strictNullChecks؟",
+        "a": "يجبر التعامل مع null/undefined صراحة في الأنواع."
+      },
+      {
+        "l": "m",
+        "q": "ما هو noImplicitAny؟",
+        "a": "يمنع المتغيرات/parameters بدون نوع (any ضمني)."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Namespaces؟",
+        "a": "طريقة قديمة لتجميع كود في مساحة اسم. الـ modules تعتبر بديل أفضل."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Ambient Declarations؟",
+        "a": "<code>declare</code> لإخبار TS بوجود متغيرات/types بدون تنفيذ (للـ JS libraries)."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Declaration Files؟",
+        "a": "ملفات <code>.d.ts</code> تحتوي type declarations فقط للـ JS libraries."
+      },
+      {
+        "l": "m",
+        "q": "ما هي @types packages؟",
+        "a": "declaration files للـ JS libraries من DefinitelyTyped: <code>@types/node, @types/lodash</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Mapped Types؟",
+        "a": "تحول properties في type لشكل آخر: <code>{[K in keyof T]: T[K]}</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي keyof؟",
+        "a": "يرجع union من keys الـ object: <code>keyof {a: 1, b: 2}</code> = <code>'a' | 'b'</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي typeof في TS؟",
+        "a": "يأخذ نوع متغير موجود: <code>type T = typeof obj</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Indexed Access Types؟",
+        "a": "الوصول لنوع property: <code>type Name = User['name']</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Conditional Types؟",
+        "a": "<code>T extends U ? X : Y</code>. اختيار نوع بناءً على شرط."
+      },
+      {
+        "l": "a",
+        "q": "ما هي infer keyword؟",
+        "a": "تستخرج نوع داخل conditional type. مثال: <code>type Return&lt;T&gt; = T extends () => infer R ? R : never;</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Template Literal Types؟",
+        "a": "<code>type G = `hello ${string}`</code> أو combinations: <code>`${'a'|'b'}-${'c'|'d'}`</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Recursive Types؟",
+        "a": "types تشير لنفسها: <code>type Tree = {value: number; children: Tree[]}</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Variadic Tuples؟",
+        "a": "tuples بطول متغير: <code>[string, ...number[]]</code> أو <code>[...T, ...U]</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Function Overloads؟",
+        "a": "عدة signatures لنفس الدالة:<br><code>function f(x: string): string;<br>function f(x: number): number;<br>function f(x: any) { return x; }</code>"
+      },
+      {
+        "l": "a",
+        "q": "ما هي const assertions؟",
+        "a": "<code>as const</code> يجعل القيم literal types وreadonly: <code>{a: 1} as const</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي satisfies operator؟",
+        "a": "يتحقق من توافق expression مع type دون تغيير type المُستنتج: <code>obj satisfies Record&lt;string, string&gt;</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Module Resolution؟",
+        "a": "كيف TS يجد الـ modules: <b>node, classic, bundler, node16</b>."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين import type و import؟",
+        "a": "<b>import type</b> يستورد types فقط، يُحذف عند compile. أفضل للأداء."
+      },
+      {
+        "l": "a",
+        "q": "ما هو const enum؟",
+        "a": "enum يُحذف عند compile ويُستبدل بقيمته inline. أداء أفضل لكن قيود في bundlers."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Branded Types؟",
+        "a": "trick لإنشاء nominal types في TS: <code>type UserID = string &amp; {__brand: 'UserID'}</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Distributive Conditional Types؟",
+        "a": "عند تطبيق conditional type على union، يطبق على كل عضو: <code>T extends U ? X : Y</code> مع <code>T = A|B</code>."
+      }
+    ]
+  },
+  {
+    "id": "ng",
+    "ar": "Angular",
+    "en": "Angular Framework",
+    "icon": "🅰️",
+    "color": "#e63946",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هو Angular؟",
+        "a": "framework من Google لبناء SPA باستخدام TypeScript. يعتمد على components وdependency injection."
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Angular و AngularJS؟",
+        "a": "<b>AngularJS (1.x)</b>: JS، MVC، scope, controllers. <b>Angular (2+)</b>: TypeScript، components-based، أسرع وأكثر حداثة."
+      },
+      {
+        "l": "b",
+        "q": "ما هي مميزات Angular؟",
+        "a": "<b>TypeScript</b>, <b>two-way binding</b>, <b>dependency injection</b>, <b>routing</b>, <b>RxJS</b>, <b>CLI قوي</b>, <b>testing</b>, <b>SSR</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Angular CLI؟",
+        "a": "أداة سطر أوامر لإنشاء وإدارة مشاريع Angular. أوامر: <code>ng new, ng generate, ng serve, ng build, ng test</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Component في Angular؟",
+        "a": "الوحدة الأساسية للـ UI، مكونة من: <b>template (HTML)</b>, <b>class (TS)</b>, <b>styles (CSS)</b>, <b>metadata (decorator)</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو @Component decorator؟",
+        "a": "يحول class لـ Angular component. مع metadata: selector, templateUrl/template, styleUrls/styles."
+      },
+      {
+        "l": "b",
+        "q": "ما هي مكونات Component؟",
+        "a": "<b>Selector</b>, <b>Template</b>, <b>Styles</b>, <b>Class (logic)</b>, <b>Metadata (decorator)</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Module في Angular؟",
+        "a": "حاوي يجمع components, directives, pipes, services. يُعرف بـ <code>@NgModule</code>. الـ AppModule هو الـ root."
+      },
+      {
+        "l": "b",
+        "q": "ما هو الـ AppModule؟",
+        "a": "الـ root module، نقطة بداية التطبيق، يحدد الـ bootstrap component."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Standalone Components؟",
+        "a": "components بدون NgModule (Angular 14+). تستورد dependencies مباشرة في decorator."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Data Binding؟",
+        "a": "الربط بين الـ template والـ class. أنواع: <b>Interpolation</b>, <b>Property</b>, <b>Event</b>, <b>Two-way</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Interpolation؟",
+        "a": "<code>{{ value }}</code> لعرض قيمة من class في template."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Property Binding؟",
+        "a": "<code>[property]=\"value\"</code> لربط property في template بقيمة من class."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Event Binding؟",
+        "a": "<code>(event)=\"handler()\"</code> للاستماع لأحداث من template."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Two-way Binding؟",
+        "a": "<code>[(ngModel)]=\"value\"</code> ربط ثنائي الاتجاه. يحتاج FormsModule."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Directives؟",
+        "a": "تعليمات لـ DOM. أنواع: <b>Component</b> (مع template)، <b>Structural</b> (يغير DOM)، <b>Attribute</b> (يغير مظهر/سلوك)."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Structural Directives؟",
+        "a": "تغير الـ DOM: <b>*ngIf, *ngFor, *ngSwitch</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Attribute Directives؟",
+        "a": "تغير مظهر العنصر: <b>ngClass, ngStyle</b>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngIf؟",
+        "a": "عرض/إخفاء عنصر بناءً على شرط: <code>*ngIf=\"condition\"</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngFor؟",
+        "a": "تكرار عنصر: <code>*ngFor=\"let item of items; let i = index\"</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngSwitch؟",
+        "a": "<code>[ngSwitch]=\"value\"</code> مع <code>*ngSwitchCase</code> و <code>*ngSwitchDefault</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Pipes؟",
+        "a": "تحويل القيم في الـ template: <code>{{ value | pipe }}</code>. أمثلة: date, currency, uppercase, async."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Pipes الجاهزة؟",
+        "a": "<b>DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, DecimalPipe, PercentPipe, JsonPipe, AsyncPipe, SlicePipe</b>."
+      },
+      {
+        "l": "b",
+        "q": "كيف تعمل Custom Pipe؟",
+        "code": "@Pipe({name:'reverse'})\nexport class ReversePipe implements PipeTransform {\n  transform(value: string): string {\n    return value.split('').reverse().join('');\n  }\n}",
+        "a": "بـ <code>@Pipe</code> decorator وimplement <code>PipeTransform</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هي Services؟",
+        "a": "classes لإعادة استخدام logic بين components. تُحقن عبر DI. تعرف بـ <code>@Injectable()</code>."
+      },
+      {
+        "l": "b",
+        "q": "ما هو Dependency Injection (DI)؟",
+        "a": "نمط برمجي يحقن الـ dependencies من خارج الـ class بدل من إنشائها داخلياً. يحسن testability وreusability."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Lifecycle Hooks؟",
+        "a": "دوال تستدعى في مراحل حياة component: <b>ngOnChanges, ngOnInit, ngDoCheck, ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, ngAfterViewChecked, ngOnDestroy</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnInit؟",
+        "a": "يستدعى مرة واحدة بعد أول ngOnChanges. مكان مثالي لتهيئة الـ component."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnChanges؟",
+        "a": "يستدعى عند تغيير @Input. يستقبل SimpleChanges object."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnDestroy؟",
+        "a": "يستدعى قبل تدمير الـ component. مكان مناسب للـ cleanup (unsubscribe)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngAfterViewInit؟",
+        "a": "يستدعى بعد تهيئة الـ view (الـ children) أول مرة. مكان للوصول للـ ViewChild."
+      },
+      {
+        "l": "m",
+        "q": "ما هي @Input و @Output؟",
+        "a": "<b>@Input</b> لتمرير بيانات من parent للـ child. <b>@Output</b> لإرسال events من child للـ parent (EventEmitter)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ViewChild؟",
+        "a": "الوصول لعنصر/component داخل template من الـ class. <code>@ViewChild('ref') el!: ElementRef;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ContentChild؟",
+        "a": "الوصول للمحتوى المُمرر من parent عبر <code>&lt;ng-content&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-content؟",
+        "a": "projection للـ content من parent للـ child component (مثل children في React)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-template؟",
+        "a": "template مخفي يمكن render عند الحاجة. يستخدم مع <code>*ngTemplateOutlet</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-container؟",
+        "a": "عنصر منطقي بدون DOM output، يستخدم لتجميع directives بدون wrapper."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Constructor و ngOnInit؟",
+        "a": "<b>Constructor</b>: من JS، للـ DI فقط. <b>ngOnInit</b>: hook بعد inputs، للـ initialization logic."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Angular Forms؟",
+        "a": "نوعان: <b>Template-driven</b> (FormsModule, ngModel) و <b>Reactive</b> (ReactiveFormsModule, FormGroup/FormControl)."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Template-driven و Reactive Forms؟",
+        "a": "<b>Template-driven</b>: في الـ template، أبسط، للـ forms الصغيرة. <b>Reactive</b>: في الـ class، أقوى، testable، للـ forms المعقدة."
+      },
+      {
+        "l": "m",
+        "q": "ما هو FormGroup و FormControl؟",
+        "a": "<b>FormControl</b> يمثل حقل واحد. <b>FormGroup</b> مجموعة من FormControls (مثل form). <b>FormArray</b> array من controls."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Validators؟",
+        "a": "دوال validation: <b>required, minLength, maxLength, pattern, email</b>. يمكن إنشاء custom validators."
+      },
+      {
+        "l": "m",
+        "q": "ما هو FormBuilder؟",
+        "a": "service يبسط إنشاء FormGroups: <code>this.fb.group({name: ['', Validators.required]})</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Angular Router؟",
+        "a": "يدير navigation بين الـ views. يعرف routes في <code>RouterModule.forRoot()</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي router-outlet؟",
+        "a": "<code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> placeholder حيث يعرض الـ router الـ component المطابق."
+      },
+      {
+        "l": "m",
+        "q": "ما هي routerLink؟",
+        "a": "directive للتنقل: <code>&lt;a routerLink=\"/path\"&gt;</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Route Parameters؟",
+        "a": "معلمات في URL: <code>/users/:id</code>. تُقرأ بـ <code>ActivatedRoute.snapshot.params</code> أو <code>params Observable</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Query Parameters؟",
+        "a": "<code>?key=value</code> في URL. تُقرأ بـ <code>ActivatedRoute.queryParams</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Lazy Loading؟",
+        "a": "تحميل modules عند الحاجة لتسريع الـ initial load: <code>loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)</code>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي Route Guards؟",
+        "a": "حماية routes: <b>CanActivate, CanDeactivate, CanLoad, CanActivateChild, Resolve</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هو CanActivate؟",
+        "a": "يتحقق إذا كان المستخدم مسموح له بالدخول للـ route (مثل auth check)."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Resolve guard؟",
+        "a": "يجلب البيانات قبل تفعيل الـ route، فيكون الـ component جاهز فوراً."
+      },
+      {
+        "l": "m",
+        "q": "ما هو HttpClient؟",
+        "a": "service للـ HTTP requests. يحتاج HttpClientModule. يرجع Observables."
+      },
+      {
+        "l": "m",
+        "q": "ما هي طرق HttpClient؟",
+        "a": "<b>get, post, put, delete, patch, head, options</b>."
+      },
+      {
+        "l": "m",
+        "q": "ما هي HTTP Interceptors؟",
+        "a": "middleware للـ requests/responses (مثل إضافة token, error handling, logging). تُسجل في providers."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Observable؟",
+        "a": "stream من القيم async. من RxJS. تشترك بـ <code>subscribe()</code>."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Observable و Promise؟",
+        "a": "<b>Observable</b>: متعدد القيم، lazy، cancellable، operators كثيرة. <b>Promise</b>: قيمة واحدة، eager، غير قابل للإلغاء."
+      },
+      {
+        "l": "m",
+        "q": "ما هو Subject؟",
+        "a": "Observable متعدد المشتركين. يمكن emit values به (next, error, complete). أنواع: BehaviorSubject, ReplaySubject, AsyncSubject."
+      },
+      {
+        "l": "m",
+        "q": "ما هو BehaviorSubject؟",
+        "a": "Subject ببداية قيمة، يعطي آخر قيمة لأي subscriber جديد."
+      },
+      {
+        "l": "m",
+        "q": "ما هي RxJS Operators الشائعة؟",
+        "a": "<b>map, filter, tap, switchMap, mergeMap, concatMap, debounceTime, distinctUntilChanged, take, takeUntil, catchError, retry</b>."
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين switchMap و mergeMap و concatMap؟",
+        "a": "<b>switchMap</b> يلغي السابق ويأخذ الجديد. <b>mergeMap</b> ينفذ كلهم بالتوازي. <b>concatMap</b> ينفذ بالتسلسل."
+      },
+      {
+        "l": "m",
+        "q": "ما هو async pipe؟",
+        "a": "<code>{{ obs$ | async }}</code> يشترك في Observable تلقائياً وينظف عند destroy."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Change Detection؟",
+        "a": "الآلية اللي يتعرف بها Angular على التغييرات ويحدث الـ view. تشتغل بعد events, async ops, AJAX."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Default و OnPush change detection؟",
+        "a": "<b>Default</b>: يفحص كل components. <b>OnPush</b>: يفحص فقط لو تغير @Input reference، event داخلي، أو async pipe. أداء أفضل."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Zone.js؟",
+        "a": "library تلتقط async operations لتشغيل change detection تلقائياً."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Signals (Angular 16+)؟",
+        "a": "reactive primitive جديد يحل محل Zone.js للـ change detection. <code>const count = signal(0); count.set(5);</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو computed signal؟",
+        "a": "signal مشتق من signals أخرى: <code>const double = computed(() => count() * 2)</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو effect؟",
+        "a": "side effect ينفذ عند تغير signals: <code>effect(() => console.log(count()))</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هو AOT vs JIT؟",
+        "a": "<b>AOT (Ahead-of-Time)</b>: compile وقت البناء، أسرع، حجم أصغر، أخطاء مبكرة. <b>JIT (Just-in-Time)</b>: compile في المتصفح، أبطأ."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Universal (SSR)؟",
+        "a": "render Angular على السيرفر. يحسن SEO وأول tتحميل."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Hydration؟",
+        "a": "عملية ربط الـ Angular client-side بـ HTML المُرسل من السيرفر بدون إعادة render."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Modules vs Standalone؟",
+        "a": "<b>Modules</b>: التقليدية، تجمع components/services/directives. <b>Standalone</b>: components مستقلة بدون module (الأفضل في الجديد)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي ViewEncapsulation؟",
+        "a": "كيف Angular يعزل الـ styles: <b>Emulated</b> (افتراضي), <b>None</b> (global), <b>ShadowDom</b> (Shadow DOM)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي :host و :host-context؟",
+        "a": "<b>:host</b> يستهدف العنصر الحاوي. <b>:host-context</b> يستهدف ancestor بشروط."
+      },
+      {
+        "l": "a",
+        "q": "ما هو ::ng-deep؟",
+        "a": "يخترق encapsulation للوصول لـ children styles. مهجور (deprecated) لكن لا يزال يستخدم."
+      },
+      {
+        "l": "a",
+        "q": "ما هو providers في Angular؟",
+        "a": "إعدادات DI تحدد كيفية إنشاء dependencies. يمكن في @NgModule, @Component, @Injectable."
+      },
+      {
+        "l": "a",
+        "q": "ما هي providedIn؟",
+        "a": "<code>@Injectable({providedIn: 'root'})</code>: tree-shakable، singleton عالمي. أفضل من تسجيل في NgModule."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Hierarchical Injectors؟",
+        "a": "DI شجرية، الـ child injector يرث من parent. الـ component-level providers تنشئ instances جديدة."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Dynamic Components؟",
+        "a": "إنشاء components وقت الـ runtime عبر <code>ViewContainerRef.createComponent()</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Animations؟",
+        "a": "animations declarative بـ <code>@Component animations</code>. تعتمد على trigger, state, transition."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Material؟",
+        "a": "مكتبة UI components من Google تتبع Material Design."
+      },
+      {
+        "l": "a",
+        "q": "ما هي CDK؟",
+        "a": "<b>Component Dev Kit</b>: مجموعة tools لبناء components. تدعم a11y, drag-drop, overlays, scrolling."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Testing tools؟",
+        "a": "<b>Jasmine</b>: testing framework. <b>Karma</b>: test runner. <b>TestBed</b>: utility لإعداد Angular environment للاختبار."
+      },
+      {
+        "l": "a",
+        "q": "ما هو spec.ts؟",
+        "a": "ملفات الاختبارات في Angular. تستخدم Jasmine syntax: <code>describe, it, expect</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي E2E Testing في Angular؟",
+        "a": "اختبار التطبيق ككل. كان Protractor، الآن Cypress أو Playwright موصى بهم."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Trackby في *ngFor؟",
+        "a": "تحسن الأداء بإخبار Angular كيف يتعرف على العناصر: <code>*ngFor=\"let item of items; trackBy: trackFn\"</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Pipes pure vs impure؟",
+        "a": "<b>Pure</b> (افتراضي): تنفذ فقط لو الـ input تغير reference. <b>Impure</b>: تنفذ كل change detection cycle."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Angular Schematics؟",
+        "a": "templates لتوليد كود تلقائياً (مثل ng generate). تستخدم في الـ libraries."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Differential Loading؟",
+        "a": "بناء نسختين: ES5 للمتصفحات القديمة، ES2015+ للحديثة. أزيلت في Angular 12."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Ivy؟",
+        "a": "الـ rendering engine الجديد في Angular 9+. أسرع، حجم أصغر، أفضل debugging."
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Angular و React؟",
+        "a": "<b>Angular</b>: framework كامل، TS، two-way binding، DI، RxJS. <b>React</b>: library، JSX، one-way، hooks."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Deferrable Views (Angular 17)؟",
+        "a": "تأجيل تحميل أجزاء من الـ template: <code>@defer { ... }</code> مع triggers مثل <code>on viewport, on idle</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Built-in Control Flow (Angular 17)؟",
+        "a": "بدائل لـ ngIf/ngFor: <code>@if, @for, @switch</code>. أنظف وأسرع."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Input Signals (Angular 17.1+)؟",
+        "a": "<code>input()</code> بدل <code>@Input()</code>. ترجع signal للـ reactivity."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Required Inputs؟",
+        "a": "<code>@Input({required: true})</code> أو <code>input.required()</code>. يفرض تمرير القيمة."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Output() function (Angular 17.3+)؟",
+        "a": "<code>output&lt;T&gt;()</code> بدل <code>@Output() ... = new EventEmitter()</code>. أنظف وtype-safe."
+      },
+      {
+        "l": "a",
+        "q": "ما هي ViewChild as Signal؟",
+        "a": "<code>viewChild()</code> ترجع signal بدل من ViewChild decorator."
+      },
+      {
+        "l": "a",
+        "q": "ما هو Angular Universal vs Hydration؟",
+        "a": "<b>Universal</b> SSR لتوليد HTML. <b>Hydration</b> ربط الـ JS بـ HTML المرسل بدون إعادة render."
+      },
+      {
+        "l": "a",
+        "q": "ما هي NgZone؟",
+        "a": "service للتحكم في change detection، يمكن تنفيذ كود <code>runOutsideAngular</code> لتجنب CD."
+      },
+      {
+        "l": "a",
+        "q": "كيف تشتغل two-way binding داخلياً؟",
+        "a": "<code>[(ngModel)]</code> = <code>[ngModel]</code> + <code>(ngModelChange)</code> = property binding + event binding."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Reactive Forms validators؟",
+        "a": "يضافون كـ argument ثاني للـ FormControl: <code>new FormControl('', [Validators.required, Validators.email])</code>."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Async Validators؟",
+        "a": "validators ترجع Observable/Promise، تستخدم للتحقق من السيرفر (مثل: هل username متاح)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي ControlValueAccessor؟",
+        "a": "interface لإنشاء custom form controls تعمل مع ngModel/FormControl."
+      },
+      {
+        "l": "a",
+        "q": "كيف تتعامل مع memory leaks في Angular؟",
+        "a": "<b>unsubscribe</b> في ngOnDestroy، استخدام <b>takeUntil</b>، <b>async pipe</b>، <b>takeUntilDestroyed</b> (v16+)."
+      },
+      {
+        "l": "a",
+        "q": "ما هي takeUntilDestroyed؟",
+        "a": "operator في Angular 16+ يلغي الاشتراك تلقائياً عند destroy الـ component."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Renderer2؟",
+        "a": "abstraction للوصول للـ DOM آمن (يدعم SSR/Web Workers). أفضل من ElementRef.nativeElement مباشرة."
+      },
+      {
+        "l": "a",
+        "q": "ما هو HostBinding و HostListener؟",
+        "a": "<b>@HostBinding</b> ربط property على host element. <b>@HostListener</b> الاستماع لأحداث host element."
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Signals vs Observables؟",
+        "a": "<b>Signals</b> sync, value-based, محلية للـ component. <b>Observables</b> async, stream-based، للـ HTTP والأحداث."
+      },
+      {
+        "l": "a",
+        "q": "ما هو inject() function؟",
+        "a": "بديل للـ constructor injection: <code>const svc = inject(MyService)</code>. يشتغل في injection context."
+      },
+      {
+        "l": "a",
+        "q": "ما هي functional Guards و Interceptors؟",
+        "a": "بدائل function-based للـ class-based في Angular 14+. أبسط وأقل boilerplate."
+      },
+      {
+        "l": "a",
+        "q": "ما هي ng-deep alternative؟",
+        "a": "استخدام <b>ViewEncapsulation.None</b> أو <b>:host ::ng-deep</b> أو <b>global styles</b>."
+      }
+    ]
+  }
+]
