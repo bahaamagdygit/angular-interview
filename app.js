@@ -20,7 +20,7 @@ function render(){
   const c=document.getElementById('mn');
   let html='', qn=0;
   D.filter(s=>CAT==='all'||s.id===CAT).forEach(sec=>{
-    const qs=sec.q.filter(q=>!srch||(q.q+' '+(q.a||'')).toLowerCase().includes(srch));
+    const qs=sec.q.filter(q=>!srch||(q.q+' '+(q.a||'')+' '+(q.ex||'')+' '+(q.code||'')).toLowerCase().includes(srch));
     if(!qs.length)return;
     qn+=qs.length;
     html+=`<div class="sg"><div class="sh"><div class="si" style="background:${sec.color}22;color:${sec.color}">${sec.icon}</div><div><div class="st">${sec.ar}</div><div class="se">${sec.en}</div></div><div class="sbg">${qs.length} سؤال</div></div>`;
@@ -30,10 +30,12 @@ function render(){
       const lc=q.l==='b'?'lb':q.l==='m'?'lm':'la';
       const lt=q.l==='b'?'أساسي':q.l==='m'?'متوسط':'متقدم';
       let body='';
-      if(q.a)body+=`<div class="ans">${q.a}</div>`;
-      if(q.code)body+=`<pre class="code">${escHtml(q.code)}</pre>`;
-      if(q.tip)body+=`<div class="tip">💡 ${q.tip}</div>`;
-      if(q.wrn)body+=`<div class="wrn">⚠️ ${q.wrn}</div>`;
+      if(q.a)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">🎯</span> الشرح</div><div class="ans">${q.a}</div></div>`;
+      if(q.ex)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">📖</span> شرح تفصيلي</div><div class="ex">${q.ex}</div></div>`;
+      if(q.code)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">💻</span> مثال عملي</div><pre class="code">${escHtml(q.code)}</pre></div>`;
+      if(q.tip)body+=`<div class="tip">💡 <b>ملاحظة:</b> ${q.tip}</div>`;
+      if(q.wrn)body+=`<div class="wrn">⚠️ <b>تنبيه:</b> ${q.wrn}</div>`;
+      if(!body)body=`<div class="ans">لا توجد إجابة متاحة.</div>`;
       html+=`<div class="qa${isO?' op':''}" id="c${id}"><button class="qb" onclick="tog('${id}')"><span class="qn">${String(i+1).padStart(3,'0')}</span><span class="qq">${q.q}</span><div class="qm"><span class="lv ${lc}">${lt}</span><span class="ar">▼</span></div></button><div class="qbd">${body}</div></div>`;
     });
     html+=`</div>`;
