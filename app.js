@@ -31,8 +31,15 @@ function render(){
       const lt=q.l==='b'?'أساسي':q.l==='m'?'متوسط':'متقدم';
       let body='';
       if(q.a)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">🎯</span> الشرح</div><div class="ans">${q.a}</div></div>`;
-      if(q.ex)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">📖</span> شرح تفصيلي</div><div class="ex">${q.ex}</div></div>`;
-      if(q.code)body+=`<div class="sec-block"><div class="sec-ttl"><span class="sec-ico">💻</span> مثال عملي</div><pre class="code">${escHtml(q.code)}</pre></div>`;
+
+      const tools=[];
+      if(q.ex)tools.push(`<button class="tbtn" onclick="event.stopPropagation();togX('${id}','ex')" title="شرح تفصيلي"><span class="tbtn-ico">📖</span><span class="tbtn-lbl">شرح تفصيلي</span></button>`);
+      if(q.code)tools.push(`<button class="tbtn" onclick="event.stopPropagation();togX('${id}','code')" title="مثال عملي"><span class="tbtn-ico">💻</span><span class="tbtn-lbl">مثال عملي</span></button>`);
+      if(tools.length)body+=`<div class="tools">${tools.join('')}</div>`;
+
+      if(q.ex)body+=`<div class="sec-block hidden" id="ex-${id}"><div class="sec-ttl"><span class="sec-ico">📖</span> شرح تفصيلي</div><div class="ex">${q.ex}</div></div>`;
+      if(q.code)body+=`<div class="sec-block hidden" id="code-${id}"><div class="sec-ttl"><span class="sec-ico">💻</span> مثال عملي</div><pre class="code">${escHtml(q.code)}</pre></div>`;
+
       if(q.tip)body+=`<div class="tip">💡 <b>ملاحظة:</b> ${q.tip}</div>`;
       if(q.wrn)body+=`<div class="wrn">⚠️ <b>تنبيه:</b> ${q.wrn}</div>`;
       if(!body)body=`<div class="ans">لا توجد إجابة متاحة.</div>`;
@@ -54,6 +61,14 @@ function tog(id){
   else{c.classList.add('op');OPENED.add(id);}
   document.getElementById('oq').textContent=OPENED.size;
   updP();
+}
+
+function togX(id,kind){
+  const el=document.getElementById(kind+'-'+id);
+  if(!el)return;
+  el.classList.toggle('hidden');
+  const btn=event.currentTarget;
+  if(btn)btn.classList.toggle('act');
 }
 
 function updP(){
