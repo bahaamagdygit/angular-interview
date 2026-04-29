@@ -2682,5 +2682,791 @@
         "code": "type ToArray<T> = T extends any ? T[] : never;\n\ntype A = ToArray<string | number>;\n// = ToArray<string> | ToArray<number>\n// = string[] | number[]\n\n// لمنع distribution\ntype ToArray2<T> = [T] extends [any] ? T[] : never;\ntype B = ToArray2<string | number>;\n// (string | number)[]"
       }
     ]
+  },
+  {
+    "id": "ng",
+    "ar": "Angular",
+    "en": "Angular Framework",
+    "icon": "🅰️",
+    "color": "#e63946",
+    "q": [
+      {
+        "l": "b",
+        "q": "ما هو Angular؟",
+        "a": "framework من Google لبناء SPA باستخدام TypeScript. يعتمد على components وdependency injection.",
+        "ex": "Angular framework كامل (مش library). بييجي بكل اللي تحتاجه: routing, forms, HTTP, testing. مناسب للمشاريع الكبيرة.",
+        "code": "// component بسيط\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-hello',\n  template: '<h1>Hello {{ name }}</h1>',\n  standalone: true\n})\nexport class HelloComponent {\n  name = 'Angular';\n}"
+      },
+      {
+        "l": "b",
+        "q": "الفرق بين Angular و AngularJS؟",
+        "a": "<b>AngularJS (1.x)</b>: JS، MVC، scope, controllers. <b>Angular (2+)</b>: TypeScript، components-based، أسرع وأكثر حداثة.",
+        "ex": "اختلافات جوهرية. AngularJS قديم ومش مدعوم. Angular (2+) إعادة كتابة كاملة بـ TS.",
+        "code": "// AngularJS (قديم)\n// app.controller('Ctrl', function($scope) {\n//   $scope.name = 'A';\n// });\n\n// Angular (حديث)\n@Component({\n  template: '<p>{{ name }}</p>'\n})\nexport class MyComp {\n  name = 'A';\n}"
+      },
+      {
+        "l": "b",
+        "q": "ما هي مميزات Angular؟",
+        "a": "<b>TypeScript</b>, <b>two-way binding</b>, <b>dependency injection</b>, <b>routing</b>, <b>RxJS</b>, <b>CLI قوي</b>, <b>testing</b>, <b>SSR</b>.",
+        "ex": "Angular بيوفر solution كامل. مش محتاج تختار libraries لكل حاجة. Convention over configuration.",
+        "code": "// كل اللي تحتاجه built-in:\n// - HttpClient للـ APIs\n// - Router للتنقل\n// - Forms (template/reactive)\n// - RxJS للـ async\n// - DI للـ services\n// - Animations\n// - i18n\n// - Testing (Jasmine/Karma)"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Angular CLI؟",
+        "a": "أداة سطر أوامر لإنشاء وإدارة مشاريع Angular. أوامر: <code>ng new, ng generate, ng serve, ng build, ng test</code>.",
+        "ex": "بيخليك تركز على الكود مش الإعدادات. ينشئ structure قياسي ويولد components وservices تلقائياً.",
+        "code": "# تثبيت\nnpm i -g @angular/cli\n\n# إنشاء مشروع\nng new my-app\n\n# تشغيل\nng serve\n\n# توليد\nng generate component my-comp\nng g c my-comp        # اختصار\nng g s my-service\nng g d my-directive\nng g p my-pipe\n\n# build\nng build --prod"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Component في Angular؟",
+        "a": "الوحدة الأساسية للـ UI، مكونة من: <b>template (HTML)</b>, <b>class (TS)</b>, <b>styles (CSS)</b>, <b>metadata (decorator)</b>.",
+        "ex": "كل صفحة وكل قطعة UI تتكون من components. الـ <b>selector</b> اسم العنصر في HTML.",
+        "code": "@Component({\n  selector: 'app-user',\n  template: `\n    <div>\n      <h2>{{ name }}</h2>\n      <button (click)=\"greet()\">Greet</button>\n    </div>\n  `,\n  styles: [`h2 { color: blue; }`],\n  standalone: true\n})\nexport class UserComponent {\n  name = 'Ahmed';\n  greet() { console.log('Hi'); }\n}"
+      },
+      {
+        "l": "b",
+        "q": "ما هو @Component decorator؟",
+        "a": "يحول class لـ Angular component. مع metadata: selector, templateUrl/template, styleUrls/styles.",
+        "ex": "الـ <b>selector</b> اسم الـ tag في HTML. <b>template</b>/<b>templateUrl</b> الـ HTML. <b>styles</b>/<b>styleUrls</b> الـ CSS.",
+        "code": "@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.css'],\n  standalone: true,\n  imports: [CommonModule],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class CardComponent {}"
+      },
+      {
+        "l": "b",
+        "q": "ما هي مكونات Component؟",
+        "a": "<b>Selector</b>, <b>Template</b>, <b>Styles</b>, <b>Class (logic)</b>, <b>Metadata (decorator)</b>.",
+        "ex": "Component = كيف يستدعى (selector) + الشكل (template/styles) + المنطق (class). الـ decorator بيربطهم.",
+        "code": "// 5 أجزاء\n@Component({\n  // 1. Selector\n  selector: 'app-x',\n  // 2. Template\n  template: '<p>{{ msg }}</p>',\n  // 3. Styles\n  styles: ['p { color: red; }'],\n  standalone: true\n})\n// 4. Class (logic)\nexport class XComponent {\n  msg = 'Hello';\n}\n// 5. Metadata: الـ decorator نفسه"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Module في Angular؟",
+        "a": "حاوي يجمع components, directives, pipes, services. يُعرف بـ <code>@NgModule</code>. الـ AppModule هو الـ root.",
+        "ex": "Modules بتنظم الـ application. مع Standalone Components (Angular 14+) أصبحت اختيارية.",
+        "code": "@NgModule({\n  declarations: [\n    AppComponent,\n    UserComponent,\n    UserPipe\n  ],\n  imports: [\n    BrowserModule,\n    HttpClientModule,\n    FormsModule\n  ],\n  providers: [\n    UserService\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {}"
+      },
+      {
+        "l": "b",
+        "q": "ما هو الـ AppModule؟",
+        "a": "الـ root module، نقطة بداية التطبيق، يحدد الـ bootstrap component.",
+        "ex": "نقطة الانطلاق. الـ <b>bootstrap</b> بيحدد الـ component اللي يبدأ التطبيق.",
+        "code": "// main.ts\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app/app.module';\n\nplatformBrowserDynamic()\n  .bootstrapModule(AppModule);\n\n// أو في standalone (Angular 14+)\nimport { bootstrapApplication } from '@angular/platform-browser';\nimport { AppComponent } from './app/app.component';\n\nbootstrapApplication(AppComponent);"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Standalone Components؟",
+        "a": "components بدون NgModule (Angular 14+). تستورد dependencies مباشرة في decorator.",
+        "ex": "أحدث وأنظف من NgModules. الـ component بيستورد dependencies بنفسه. الـ default في Angular 17+.",
+        "code": "@Component({\n  selector: 'app-x',\n  standalone: true,  // مهم\n  imports: [\n    CommonModule,\n    FormsModule,\n    UserComponent\n  ],\n  template: `\n    <app-user></app-user>\n    <input [(ngModel)]=\"name\">\n  `\n})\nexport class XComponent {\n  name = '';\n}"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Data Binding؟",
+        "a": "الربط بين الـ template والـ class. أنواع: <b>Interpolation</b>, <b>Property</b>, <b>Event</b>, <b>Two-way</b>.",
+        "ex": "الـ binding بيربط بيانات الـ component بالـ HTML. كل نوع له syntax مختلف وغرض مختلف.",
+        "code": "<!-- 1. Interpolation -->\n<p>{{ name }}</p>\n\n<!-- 2. Property binding -->\n<img [src]=\"imgUrl\">\n<button [disabled]=\"isLoading\">Save</button>\n\n<!-- 3. Event binding -->\n<button (click)=\"save()\">Save</button>\n\n<!-- 4. Two-way -->\n<input [(ngModel)]=\"name\">"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Interpolation؟",
+        "a": "<code>{{ value }}</code> لعرض قيمة من class في template.",
+        "ex": "بيقدر يحتوي expressions بسيطة. القيمة بتتحول لـ string. مش بيقدر يستخدم statements (مفيش <code>=</code> أو <code>;</code>).",
+        "code": "// component\nname = 'Ahmed';\nage = 25;\n\n// template\n<p>{{ name }}</p>\n<p>Age: {{ age }}</p>\n<p>{{ name + ' - ' + age }}</p>\n<p>{{ getFullName() }}</p>\n<p>{{ age > 18 ? 'بالغ' : 'صغير' }}</p>"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Property Binding؟",
+        "a": "<code>[property]=\"value\"</code> لربط property في template بقيمة من class.",
+        "ex": "بربط DOM property مش attribute. مفيد للقيم الديناميكية. الفرق بين attribute و property: HTML vs DOM.",
+        "code": "// component\nimgSrc = '/avatar.png';\nisDisabled = true;\nclass = 'btn-primary';\n\n// template\n<img [src]=\"imgSrc\" [alt]=\"name\">\n<button [disabled]=\"isDisabled\">Save</button>\n<div [class]=\"class\">...</div>\n<div [innerHTML]=\"htmlContent\"></div>\n\n// attribute (للـ ARIA مثلاً)\n<button [attr.aria-label]=\"label\">"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Event Binding؟",
+        "a": "<code>(event)=\"handler()\"</code> للاستماع لأحداث من template.",
+        "ex": "بتشتغل مع كل أحداث الـ DOM. الـ <b>$event</b> object بيحتوي معلومات الحدث.",
+        "code": "// template\n<button (click)=\"save()\">Save</button>\n<input (input)=\"onInput($event)\">\n<form (submit)=\"onSubmit($event)\">\n<div (mouseenter)=\"hover()\">\n\n// component\nsave() { /* */ }\n\nonInput(e: Event) {\n  const value = (e.target as HTMLInputElement).value;\n  console.log(value);\n}\n\nonSubmit(e: Event) {\n  e.preventDefault();\n}"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Two-way Binding؟",
+        "a": "<code>[(ngModel)]=\"value\"</code> ربط ثنائي الاتجاه. يحتاج FormsModule.",
+        "ex": "<b>banana in a box</b> [( )] = property binding + event binding. التغيير في الـ input يحدث الـ class والعكس.",
+        "code": "import { FormsModule } from '@angular/forms';\n\n@Component({\n  imports: [FormsModule],\n  template: `\n    <input [(ngModel)]=\"name\">\n    <p>Hello {{ name }}</p>\n  `\n})\nexport class X {\n  name = '';\n}\n\n// = اختصار لـ:\n// [ngModel]=\"name\" (ngModelChange)=\"name = $event\""
+      },
+      {
+        "l": "b",
+        "q": "ما هي Directives؟",
+        "a": "تعليمات لـ DOM. أنواع: <b>Component</b> (مع template)، <b>Structural</b> (يغير DOM)، <b>Attribute</b> (يغير مظهر/سلوك).",
+        "ex": "<b>Component</b> = directive مع template. <b>Structural</b> (*ngIf, *ngFor) بتعدل الشجرة. <b>Attribute</b> (ngClass) بتعدل خصائص.",
+        "code": "// Structural: تغير DOM\n<div *ngIf=\"loggedIn\">مرحبا</div>\n<li *ngFor=\"let item of items\">{{ item }}</li>\n\n// Attribute: تغير الخصائص\n<div [ngClass]=\"{ active: isActive }\"></div>\n<div [ngStyle]=\"{ color: textColor }\"></div>\n\n// Custom\n@Directive({\n  selector: '[appHighlight]',\n  standalone: true\n})\nexport class HighlightDirective {}"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Structural Directives؟",
+        "a": "تغير الـ DOM: <b>*ngIf, *ngFor, *ngSwitch</b>.",
+        "ex": "بتضيف أو تشيل عناصر من الـ DOM. الـ <b>*</b> اختصار لـ <code>&lt;ng-template&gt;</code>.",
+        "code": "<!-- ngIf -->\n<div *ngIf=\"isLoggedIn\">مرحبا</div>\n<div *ngIf=\"user; else loading\">{{ user.name }}</div>\n<ng-template #loading>تحميل...</ng-template>\n\n<!-- ngFor -->\n<li *ngFor=\"let item of items; let i = index; trackBy: trackFn\">\n  {{ i }}: {{ item.name }}\n</li>\n\n<!-- ngSwitch -->\n<div [ngSwitch]=\"status\">\n  <p *ngSwitchCase=\"'active'\">نشط</p>\n  <p *ngSwitchCase=\"'pending'\">معلق</p>\n  <p *ngSwitchDefault>غير معروف</p>\n</div>"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Attribute Directives؟",
+        "a": "تغير مظهر العنصر: <b>ngClass, ngStyle</b>.",
+        "ex": "<b>ngClass</b> للـ classes الديناميكية. <b>ngStyle</b> للـ styles. ممكن استخدام <code>[class.x]</code> و <code>[style.x]</code> للحالات البسيطة.",
+        "code": "<!-- ngClass -->\n<div [ngClass]=\"{\n  active: isActive,\n  disabled: !canEdit,\n  'btn-large': size === 'lg'\n}\">...</div>\n\n<!-- ngStyle -->\n<div [ngStyle]=\"{\n  color: textColor,\n  'font-size.px': fontSize\n}\">...</div>\n\n<!-- اختصار -->\n<div [class.active]=\"isActive\"></div>\n<div [style.color]=\"textColor\"></div>"
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngIf؟",
+        "a": "عرض/إخفاء عنصر بناءً على شرط: <code>*ngIf=\"condition\"</code>.",
+        "ex": "بيشيل العنصر من DOM (مش بس يخفيه). يدعم else و then.",
+        "code": "<!-- بسيط -->\n<div *ngIf=\"isLoggedIn\">مرحبا</div>\n\n<!-- مع else -->\n<div *ngIf=\"user; else noUser\">\n  {{ user.name }}\n</div>\n<ng-template #noUser>\n  <p>لم يتم تسجيل الدخول</p>\n</ng-template>\n\n<!-- as syntax -->\n<div *ngIf=\"user$ | async as user\">\n  {{ user.name }}\n</div>"
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngFor؟",
+        "a": "تكرار عنصر: <code>*ngFor=\"let item of items; let i = index\"</code>.",
+        "ex": "بيلف على array أو iterable. الـ <b>trackBy</b> مهمة للأداء (Angular يقدر يعرف العناصر الموجودة).",
+        "code": "<!-- بسيط -->\n<li *ngFor=\"let user of users\">\n  {{ user.name }}\n</li>\n\n<!-- مع index -->\n<li *ngFor=\"let item of items; let i = index\">\n  {{ i + 1 }}. {{ item }}\n</li>\n\n<!-- مع trackBy -->\n<li *ngFor=\"let user of users; trackBy: trackById\">\n  {{ user.name }}\n</li>\n\n// component\ntrackById(i: number, u: User) { return u.id; }"
+      },
+      {
+        "l": "b",
+        "q": "ما هو *ngSwitch؟",
+        "a": "<code>[ngSwitch]=\"value\"</code> مع <code>*ngSwitchCase</code> و <code>*ngSwitchDefault</code>.",
+        "ex": "بديل لسلسلة <code>*ngIf</code>. أنظف لما عندك حالات متعددة.",
+        "code": "<div [ngSwitch]=\"role\">\n  <admin-panel *ngSwitchCase=\"'admin'\"/>\n  <user-panel *ngSwitchCase=\"'user'\"/>\n  <guest-panel *ngSwitchCase=\"'guest'\"/>\n  <p *ngSwitchDefault>غير معرف</p>\n</div>"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Pipes؟",
+        "a": "تحويل القيم في الـ template: <code>{{ value | pipe }}</code>. أمثلة: date, currency, uppercase, async.",
+        "ex": "بتحول القيم بدون تعديل الأصل. تقدر تـ chain pipes متعددة. مفيدة جداً للتنسيق.",
+        "code": "<!-- built-in -->\n<p>{{ name | uppercase }}</p>\n<p>{{ price | currency:'EGP':'symbol':'1.2-2' }}</p>\n<p>{{ today | date:'short' }}</p>\n<p>{{ data | json }}</p>\n<p>{{ items | slice:0:5 }}</p>\n\n<!-- chain -->\n<p>{{ name | lowercase | titlecase }}</p>\n\n<!-- args -->\n<p>{{ price | number:'1.0-2' }}</p>\n\n<!-- async -->\n<p>{{ user$ | async }}</p>"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Pipes الجاهزة؟",
+        "a": "<b>DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, DecimalPipe, PercentPipe, JsonPipe, AsyncPipe, SlicePipe</b>.",
+        "ex": "Angular بيوفر pipes شائعة جاهزة. كلها في CommonModule.",
+        "code": "<!-- نصوص -->\n{{ 'hello' | uppercase }}     <!-- HELLO -->\n{{ 'HELLO' | lowercase }}     <!-- hello -->\n{{ 'hello world' | titlecase }} <!-- Hello World -->\n\n<!-- أرقام -->\n{{ 0.5 | percent }}            <!-- 50% -->\n{{ 1234.567 | number:'1.0-2' }} <!-- 1,234.57 -->\n{{ 100 | currency:'USD' }}     <!-- $100.00 -->\n\n<!-- تاريخ -->\n{{ today | date }}             <!-- Jan 1, 2026 -->\n{{ today | date:'dd/MM/yyyy' }}\n\n<!-- آخرى -->\n{{ obj | json }}\n{{ arr | slice:1:3 }}\n{{ obs$ | async }}"
+      },
+      {
+        "l": "b",
+        "q": "كيف تعمل Custom Pipe؟",
+        "a": "بـ <code>@Pipe</code> decorator وimplement <code>PipeTransform</code>.",
+        "ex": "اعمل class بـ <code>@Pipe</code> ونفذ <code>PipeTransform</code> بـ method <code>transform</code>. ممكن تاخد args.",
+        "code": "import { Pipe, PipeTransform } from '@angular/core';\n\n@Pipe({\n  name: 'reverse',\n  standalone: true\n})\nexport class ReversePipe implements PipeTransform {\n  transform(value: string): string {\n    return value.split('').reverse().join('');\n  }\n}\n\n// مع args\n@Pipe({ name: 'truncate', standalone: true })\nexport class TruncatePipe implements PipeTransform {\n  transform(value: string, limit = 20): string {\n    return value.length > limit\n      ? value.slice(0, limit) + '...'\n      : value;\n  }\n}\n\n// usage\n{{ 'hello' | reverse }}\n{{ longText | truncate:50 }}"
+      },
+      {
+        "l": "b",
+        "q": "ما هي Services؟",
+        "a": "classes لإعادة استخدام logic بين components. تُحقن عبر DI. تعرف بـ <code>@Injectable()</code>.",
+        "ex": "Services لتنظيم الكود اللي مش UI (HTTP, business logic, state). بيتحقنوا في components بـ DI.",
+        "code": "@Injectable({ providedIn: 'root' })\nexport class UserService {\n  private users: User[] = [];\n\n  constructor(private http: HttpClient) {}\n\n  getUsers(): Observable<User[]> {\n    return this.http.get<User[]>('/api/users');\n  }\n\n  addUser(user: User) {\n    this.users.push(user);\n  }\n}\n\n// component\nexport class UserList {\n  users$ = this.userSvc.getUsers();\n  constructor(private userSvc: UserService) {}\n}"
+      },
+      {
+        "l": "b",
+        "q": "ما هو Dependency Injection (DI)؟",
+        "a": "نمط برمجي يحقن الـ dependencies من خارج الـ class بدل من إنشائها داخلياً. يحسن testability وreusability.",
+        "ex": "بدلاً من <code>new Service()</code> داخل component، Angular بيحقنها. أسهل للاختبار (تقدر تحقن mocks).",
+        "code": "// بدون DI (سيء)\nclass UserList {\n  service = new UserService(); // لا يمكن mock\n}\n\n// مع DI (Angular)\n@Component({...})\nexport class UserList {\n  constructor(private service: UserService) {}\n  // أو inject() function (modern)\n  private service = inject(UserService);\n}\n\n// في الاختبار\nTestBed.configureTestingModule({\n  providers: [\n    { provide: UserService, useClass: MockUserService }\n  ]\n});"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Lifecycle Hooks؟",
+        "a": "دوال تستدعى في مراحل حياة component: <b>ngOnChanges, ngOnInit, ngDoCheck, ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, ngAfterViewChecked, ngOnDestroy</b>.",
+        "ex": "كل hook ليه وظيفة محددة. الترتيب: <b>OnChanges → OnInit → DoCheck → AfterContentInit → AfterContentChecked → AfterViewInit → AfterViewChecked → OnDestroy</b>.",
+        "code": "export class MyComp implements\n  OnInit, OnChanges, OnDestroy, AfterViewInit {\n\n  ngOnChanges(changes: SimpleChanges) {\n    // عند تغيير @Input\n  }\n\n  ngOnInit() {\n    // مرة واحدة بعد inputs\n  }\n\n  ngAfterViewInit() {\n    // بعد render الـ view\n  }\n\n  ngOnDestroy() {\n    // قبل التدمير - cleanup\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnInit؟",
+        "a": "يستدعى مرة واحدة بعد أول ngOnChanges. مكان مثالي لتهيئة الـ component.",
+        "ex": "أفضل من constructor للـ initialization اللي محتاجة الـ inputs. بيشتغل مرة واحدة بس.",
+        "code": "export class UserList implements OnInit {\n  users: User[] = [];\n\n  constructor(private userSvc: UserService) {\n    // الـ DI فقط\n  }\n\n  ngOnInit() {\n    // initialization (HTTP, data setup)\n    this.userSvc.getUsers()\n      .subscribe(users => this.users = users);\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnChanges؟",
+        "a": "يستدعى عند تغيير @Input. يستقبل SimpleChanges object.",
+        "ex": "بيشتغل قبل ngOnInit (لو في inputs) وكل ما الـ input يتغير. الـ <b>SimpleChanges</b> فيه current/previous values.",
+        "code": "export class Greeting implements OnChanges {\n  @Input() name = '';\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['name']) {\n      const { currentValue, previousValue, firstChange } = changes['name'];\n      console.log(`من ${previousValue} لـ ${currentValue}`);\n    }\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngOnDestroy؟",
+        "a": "يستدعى قبل تدمير الـ component. مكان مناسب للـ cleanup (unsubscribe).",
+        "ex": "حيوي لمنع memory leaks. الـ <b>takeUntilDestroyed</b> (Angular 16+) بديل أنظف.",
+        "code": "export class MyComp implements OnDestroy {\n  private sub = new Subscription();\n\n  ngOnInit() {\n    this.sub.add(\n      this.svc.data$.subscribe(/* */)\n    );\n  }\n\n  ngOnDestroy() {\n    this.sub.unsubscribe();\n  }\n}\n\n// أحدث (Angular 16+)\nexport class MyComp {\n  data$ = this.svc.data$.pipe(\n    takeUntilDestroyed()\n  );\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ngAfterViewInit؟",
+        "a": "يستدعى بعد تهيئة الـ view (الـ children) أول مرة. مكان للوصول للـ ViewChild.",
+        "ex": "الـ <b>@ViewChild</b> ما تكونش متاحة في ngOnInit. لازم في ngAfterViewInit أو بعدها.",
+        "code": "export class MyComp implements AfterViewInit {\n  @ViewChild('input') inputRef!: ElementRef;\n\n  ngAfterViewInit() {\n    // الآن متاحة\n    this.inputRef.nativeElement.focus();\n  }\n}\n\n<input #input>"
+      },
+      {
+        "l": "m",
+        "q": "ما هي @Input و @Output؟",
+        "a": "<b>@Input</b> لتمرير بيانات من parent للـ child. <b>@Output</b> لإرسال events من child للـ parent (EventEmitter).",
+        "ex": "<b>@Input</b> = props. <b>@Output</b> = events. الـ binding في parent: <code>[input]</code> و <code>(output)</code>.",
+        "code": "// child\nexport class UserCard {\n  @Input() user!: User;\n  @Input({ required: true }) id!: number;\n  @Output() delete = new EventEmitter<number>();\n\n  onDelete() {\n    this.delete.emit(this.user.id);\n  }\n}\n\n// parent template\n<user-card\n  [user]=\"selectedUser\"\n  [id]=\"5\"\n  (delete)=\"removeUser($event)\"\n/>\n\n// Angular 17.1+ Signals\nexport class UserCard {\n  user = input.required<User>();\n  delete = output<number>();\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ViewChild؟",
+        "a": "الوصول لعنصر/component داخل template من الـ class. <code>@ViewChild('ref') el!: ElementRef;</code>.",
+        "ex": "بتدي وصول مباشر للـ DOM element أو الـ child component. متاحة بعد <b>ngAfterViewInit</b>.",
+        "code": "// template\n<input #userInput>\n<my-child #childRef></my-child>\n\n// component\nexport class Parent implements AfterViewInit {\n  @ViewChild('userInput') input!: ElementRef;\n  @ViewChild('childRef') child!: MyChild;\n  @ViewChild(MyChild) child2!: MyChild;  // by type\n\n  ngAfterViewInit() {\n    this.input.nativeElement.focus();\n    this.child.someMethod();\n  }\n}\n\n// signal version (modern)\nchild = viewChild<MyChild>('childRef');"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ContentChild؟",
+        "a": "الوصول للمحتوى المُمرر من parent عبر <code>&lt;ng-content&gt;</code>.",
+        "ex": "<b>ViewChild</b>: داخل الـ template نفسه. <b>ContentChild</b>: المحتوى الـ projected من الـ parent.",
+        "code": "// child template\n<div class=\"card\">\n  <ng-content></ng-content>\n</div>\n\n// child class\nexport class Card {\n  @ContentChild('header') header!: ElementRef;\n}\n\n// parent\n<app-card>\n  <h2 #header>عنوان</h2>\n  <p>محتوى</p>\n</app-card>"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-content؟",
+        "a": "projection للـ content من parent للـ child component (مثل children في React).",
+        "ex": "بيسمح لـ component إنه يعرض محتوى من الـ parent. تقدر تعمل multiple slots بـ <b>select</b>.",
+        "code": "// child (Card)\n@Component({\n  template: `\n    <div class=\"card\">\n      <header>\n        <ng-content select=\"[card-header]\"></ng-content>\n      </header>\n      <main>\n        <ng-content></ng-content>\n      </main>\n    </div>\n  `\n})\nexport class Card {}\n\n// parent\n<app-card>\n  <h2 card-header>العنوان</h2>\n  <p>المحتوى</p>\n</app-card>"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-template؟",
+        "a": "template مخفي يمكن render عند الحاجة. يستخدم مع <code>*ngTemplateOutlet</code>.",
+        "ex": "محتواه مش بيتعرض افتراضياً. مفيد لـ reusable templates و conditional rendering.",
+        "code": "<!-- تعريف template -->\n<ng-template #greeting let-name=\"name\">\n  <p>مرحبا {{ name }}</p>\n</ng-template>\n\n<!-- استخدام -->\n<ng-container\n  *ngTemplateOutlet=\"greeting; context: { name: 'Ahmed' }\"\n></ng-container>\n\n<!-- مع *ngIf else -->\n<div *ngIf=\"user; else loading\">{{ user.name }}</div>\n<ng-template #loading>تحميل...</ng-template>"
+      },
+      {
+        "l": "m",
+        "q": "ما هو ng-container؟",
+        "a": "عنصر منطقي بدون DOM output، يستخدم لتجميع directives بدون wrapper.",
+        "ex": "ما يطلعش في الـ DOM. مفيد لما عاوز تطبق structural directive بدون إضافة عنصر إضافي.",
+        "code": "<!-- بدون: div زيادة -->\n<div *ngIf=\"loaded\">\n  <h1>{{ title }}</h1>\n  <p>{{ desc }}</p>\n</div>\n\n<!-- مع ng-container: مفيش div -->\n<ng-container *ngIf=\"loaded\">\n  <h1>{{ title }}</h1>\n  <p>{{ desc }}</p>\n</ng-container>\n\n<!-- جمع directives -->\n<ng-container *ngIf=\"user\">\n  <ng-container *ngFor=\"let role of user.roles\">\n    {{ role }}\n  </ng-container>\n</ng-container>"
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Constructor و ngOnInit؟",
+        "a": "<b>Constructor</b>: من JS، للـ DI فقط. <b>ngOnInit</b>: hook بعد inputs، للـ initialization logic.",
+        "ex": "<b>Constructor</b> بيشتغل قبل أي حاجة. <b>ngOnInit</b> بعد ما الـ inputs اتعينت. للـ logic استخدم ngOnInit.",
+        "code": "export class MyComp implements OnInit {\n  @Input() id!: number;\n  data: any;\n\n  constructor(private svc: DataService) {\n    // فقط DI، تجنب logic\n    // this.id لسه undefined هنا\n  }\n\n  ngOnInit() {\n    // الـ inputs جاهزة\n    this.svc.getData(this.id)\n      .subscribe(d => this.data = d);\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Angular Forms؟",
+        "a": "نوعان: <b>Template-driven</b> (FormsModule, ngModel) و <b>Reactive</b> (ReactiveFormsModule, FormGroup/FormControl).",
+        "ex": "<b>Template-driven</b>: المنطق في الـ template. <b>Reactive</b>: في الـ class. الـ Reactive أفضل للـ forms المعقدة.",
+        "code": "// Template-driven\n<form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f.value)\">\n  <input name=\"name\" ngModel required>\n  <button>إرسال</button>\n</form>\n\n// Reactive\nform = new FormGroup({\n  name: new FormControl('', Validators.required),\n  email: new FormControl('', [\n    Validators.required,\n    Validators.email\n  ])\n});\n\n<form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n  <input formControlName=\"name\">\n  <input formControlName=\"email\">\n</form>"
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Template-driven و Reactive Forms؟",
+        "a": "<b>Template-driven</b>: في الـ template، أبسط، للـ forms الصغيرة. <b>Reactive</b>: في الـ class، أقوى، testable، للـ forms المعقدة.",
+        "ex": "<b>Reactive</b> الأفضل: predictable, testable, supports complex validation. الـ <b>Template-driven</b> أبسط للنماذج البسيطة.",
+        "code": "// Reactive (موصى به)\nimport { FormGroup, FormControl, Validators } from '@angular/forms';\n\nform = new FormGroup({\n  username: new FormControl('', [Validators.required]),\n  password: new FormControl('', [\n    Validators.required,\n    Validators.minLength(8)\n  ])\n});\n\nonSubmit() {\n  if (this.form.valid) {\n    console.log(this.form.value);\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو FormGroup و FormControl؟",
+        "a": "<b>FormControl</b> يمثل حقل واحد. <b>FormGroup</b> مجموعة من FormControls (مثل form). <b>FormArray</b> array من controls.",
+        "ex": "كل حقل = FormControl. الـ form = FormGroup. القائمة الديناميكية = FormArray.",
+        "code": "import { FormGroup, FormControl, FormArray } from '@angular/forms';\n\nform = new FormGroup({\n  name: new FormControl(''),\n  address: new FormGroup({\n    street: new FormControl(''),\n    city: new FormControl('')\n  }),\n  hobbies: new FormArray([\n    new FormControl('reading'),\n    new FormControl('coding')\n  ])\n});\n\n// الوصول\nthis.form.get('name')?.value;\nthis.form.value;  // كامل\nthis.form.valid;  // boolean"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Validators؟",
+        "a": "دوال validation: <b>required, minLength, maxLength, pattern, email</b>. يمكن إنشاء custom validators.",
+        "ex": "validators built-in بتغطي الحالات الشائعة. تقدر تجمع أكثر من واحد في array.",
+        "code": "import { Validators } from '@angular/forms';\n\nemail = new FormControl('', [\n  Validators.required,\n  Validators.email\n]);\n\npassword = new FormControl('', [\n  Validators.required,\n  Validators.minLength(8),\n  Validators.pattern(/[A-Z]/)\n]);\n\n// custom\nfunction noSpaces(c: AbstractControl) {\n  return c.value?.includes(' ')\n    ? { hasSpaces: true }\n    : null;\n}\n\nname = new FormControl('', [Validators.required, noSpaces]);"
+      },
+      {
+        "l": "m",
+        "q": "ما هو FormBuilder؟",
+        "a": "service يبسط إنشاء FormGroups: <code>this.fb.group({name: ['', Validators.required]})</code>.",
+        "ex": "أقصر من <code>new FormControl()</code> لكل حقل. شائع جداً في Angular.",
+        "code": "import { FormBuilder, Validators } from '@angular/forms';\n\nexport class MyForm {\n  form = this.fb.group({\n    name: ['', Validators.required],\n    email: ['', [Validators.required, Validators.email]],\n    address: this.fb.group({\n      street: [''],\n      city: ['']\n    }),\n    hobbies: this.fb.array([])\n  });\n\n  constructor(private fb: FormBuilder) {}\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو Angular Router؟",
+        "a": "يدير navigation بين الـ views. يعرف routes في <code>RouterModule.forRoot()</code>.",
+        "ex": "يربط URLs بـ components. يدعم lazy loading, guards, parameters.",
+        "code": "// routes\nconst routes: Routes = [\n  { path: '', component: HomeComponent },\n  { path: 'users', component: UsersComponent },\n  { path: 'users/:id', component: UserDetailComponent },\n  { path: '**', component: NotFoundComponent }\n];\n\n// app config (standalone)\nexport const appConfig: ApplicationConfig = {\n  providers: [provideRouter(routes)]\n};\n\n// template\n<router-outlet></router-outlet>\n<a routerLink=\"/users\">المستخدمين</a>"
+      },
+      {
+        "l": "m",
+        "q": "ما هي router-outlet؟",
+        "a": "<code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> placeholder حيث يعرض الـ router الـ component المطابق.",
+        "ex": "المكان اللي الـ component المطابق للـ URL هيتعرض فيه. ممكن تعمل nested outlets للـ child routes.",
+        "code": "<!-- main layout -->\n<header>...</header>\n<main>\n  <router-outlet></router-outlet>\n</main>\n<footer>...</footer>\n\n<!-- nested -->\n<aside>...</aside>\n<router-outlet name=\"main\"></router-outlet>\n<router-outlet name=\"sidebar\"></router-outlet>"
+      },
+      {
+        "l": "m",
+        "q": "ما هي routerLink؟",
+        "a": "directive للتنقل: <code>&lt;a routerLink=\"/path\"&gt;</code>.",
+        "ex": "بديل لـ <code>href</code>. ما يعملش reload للصفحة. يدعم arrays للـ paths والـ params.",
+        "code": "<!-- ساكن -->\n<a routerLink=\"/users\">المستخدمين</a>\n\n<!-- ديناميكي -->\n<a [routerLink]=\"['/user', userId]\">عرض</a>\n\n<!-- مع query params -->\n<a [routerLink]=\"['/search']\"\n   [queryParams]=\"{ q: 'test' }\">\n  بحث\n</a>\n\n<!-- active class -->\n<a routerLink=\"/home\" routerLinkActive=\"active\">\n  الرئيسية\n</a>\n\n<!-- programmatic -->\nthis.router.navigate(['/user', id]);"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Route Parameters؟",
+        "a": "معلمات في URL: <code>/users/:id</code>. تُقرأ بـ <code>ActivatedRoute.snapshot.params</code> أو <code>params Observable</code>.",
+        "ex": "للـ values في URL (zid، slug). الـ <b>Observable</b> أفضل لو الـ component هيتعاد استخدامه مع IDs مختلفة.",
+        "code": "// route\n{ path: 'user/:id', component: UserDetail }\n\n// component\nexport class UserDetail implements OnInit {\n  id!: string;\n\n  constructor(private route: ActivatedRoute) {}\n\n  ngOnInit() {\n    // snapshot (مرة واحدة)\n    this.id = this.route.snapshot.params['id'];\n\n    // observable (يتحدث)\n    this.route.params.subscribe(params => {\n      this.id = params['id'];\n      this.loadUser();\n    });\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Query Parameters؟",
+        "a": "<code>?key=value</code> في URL. تُقرأ بـ <code>ActivatedRoute.queryParams</code>.",
+        "ex": "للـ filters والـ search. ما تتعرفش في route definition.",
+        "code": "// URL: /search?q=angular&page=2\n\nthis.route.queryParams.subscribe(params => {\n  const q = params['q'];\n  const page = +params['page'];\n});\n\n// snapshot\nconst q = this.route.snapshot.queryParams['q'];\n\n// التنقل مع query\nthis.router.navigate(['/search'], {\n  queryParams: { q: 'test', page: 1 }\n});"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Lazy Loading؟",
+        "a": "تحميل modules عند الحاجة لتسريع الـ initial load: <code>loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)</code>.",
+        "ex": "بدلاً من تحميل كل التطبيق، الأقسام بتنزل لما الـ user يدخلها. أساسي للـ performance.",
+        "code": "// classic (NgModule)\nconst routes: Routes = [\n  {\n    path: 'admin',\n    loadChildren: () =>\n      import('./admin/admin.module')\n        .then(m => m.AdminModule)\n  }\n];\n\n// standalone (Angular 14+)\nconst routes: Routes = [\n  {\n    path: 'admin',\n    loadComponent: () =>\n      import('./admin/admin.component')\n        .then(c => c.AdminComponent)\n  }\n];"
+      },
+      {
+        "l": "m",
+        "q": "ما هي Route Guards؟",
+        "a": "حماية routes: <b>CanActivate, CanDeactivate, CanLoad, CanActivateChild, Resolve</b>.",
+        "ex": "بتقرر هل الـ user يقدر يدخل route ولا لأ. شائعة للـ authentication والـ permissions.",
+        "code": "// functional guard (modern)\nimport { CanActivateFn, Router } from '@angular/router';\nimport { inject } from '@angular/core';\n\nexport const authGuard: CanActivateFn = () => {\n  const auth = inject(AuthService);\n  const router = inject(Router);\n\n  if (auth.isLoggedIn()) return true;\n\n  router.navigate(['/login']);\n  return false;\n};\n\n// route\n{\n  path: 'admin',\n  canActivate: [authGuard],\n  component: AdminComponent\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو CanActivate؟",
+        "a": "يتحقق إذا كان المستخدم مسموح له بالدخول للـ route (مثل auth check).",
+        "ex": "أشهر guard. بيرجع <code>true</code> (سماح) أو <code>false</code> أو <code>UrlTree</code> (إعادة توجيه).",
+        "code": "export const adminGuard: CanActivateFn = (route, state) => {\n  const auth = inject(AuthService);\n  const router = inject(Router);\n\n  if (auth.user?.role === 'admin') {\n    return true;\n  }\n\n  // إعادة توجيه\n  return router.parseUrl('/login');\n};\n\n// مع روتس\n{\n  path: 'admin',\n  component: AdminPanel,\n  canActivate: [adminGuard]\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو Resolve guard؟",
+        "a": "يجلب البيانات قبل تفعيل الـ route، فيكون الـ component جاهز فوراً.",
+        "ex": "بدلاً من ما الـ component يطلب البيانات بعد ما يـ render، الـ resolver بيجيبها قبل، فالـ user ما يشوفش loading.",
+        "code": "export const userResolver: ResolveFn<User> = (route) => {\n  const id = route.paramMap.get('id')!;\n  return inject(UserService).getUser(id);\n};\n\n// route\n{\n  path: 'user/:id',\n  component: UserDetail,\n  resolve: { user: userResolver }\n}\n\n// component\nexport class UserDetail {\n  user = this.route.snapshot.data['user'];\n  constructor(private route: ActivatedRoute) {}\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هو HttpClient؟",
+        "a": "service للـ HTTP requests. يحتاج HttpClientModule. يرجع Observables.",
+        "ex": "بديل modern لـ XHR/fetch في Angular. ترجع Observables بتسمح بـ retry, cancel, transform.",
+        "code": "// app config\nimport { provideHttpClient } from '@angular/common/http';\n\nexport const appConfig = {\n  providers: [provideHttpClient()]\n};\n\n// service\n@Injectable({ providedIn: 'root' })\nexport class UserService {\n  constructor(private http: HttpClient) {}\n\n  getUsers() {\n    return this.http.get<User[]>('/api/users');\n  }\n\n  createUser(user: User) {\n    return this.http.post<User>('/api/users', user);\n  }\n}"
+      },
+      {
+        "l": "m",
+        "q": "ما هي طرق HttpClient؟",
+        "a": "<b>get, post, put, delete, patch, head, options</b>.",
+        "ex": "كلهم بيرجعوا Observable. تقدر تحدد response type بـ generic.",
+        "code": "// GET\nthis.http.get<User[]>('/users');\nthis.http.get<User>('/users/1');\n\n// مع params\nthis.http.get('/users', {\n  params: { page: '1', limit: '10' }\n});\n\n// POST\nthis.http.post<User>('/users', { name: 'A' });\n\n// PUT/PATCH/DELETE\nthis.http.put<User>('/users/1', user);\nthis.http.patch<User>('/users/1', { name: 'B' });\nthis.http.delete('/users/1');\n\n// مع headers\nthis.http.get('/users', {\n  headers: { 'X-Token': '123' }\n});"
+      },
+      {
+        "l": "m",
+        "q": "ما هي HTTP Interceptors؟",
+        "a": "middleware للـ requests/responses (مثل إضافة token, error handling, logging). تُسجل في providers.",
+        "ex": "بتشتغل على كل HTTP request. مثالية للـ auth tokens، error handling، loading indicators.",
+        "code": "// functional interceptor (Angular 15+)\nexport const authInterceptor: HttpInterceptorFn = (req, next) => {\n  const token = inject(AuthService).token;\n\n  const cloned = req.clone({\n    setHeaders: { Authorization: `Bearer ${token}` }\n  });\n\n  return next(cloned);\n};\n\n// تسجيل\nexport const appConfig = {\n  providers: [\n    provideHttpClient(\n      withInterceptors([authInterceptor])\n    )\n  ]\n};"
+      },
+      {
+        "l": "m",
+        "q": "ما هو Observable؟",
+        "a": "stream من القيم async. من RxJS. تشترك بـ <code>subscribe()</code>.",
+        "ex": "Observable lazy (ما يبدأش لحد ما تشترك). يمكن يبعت قيم متعددة (event stream).",
+        "code": "import { Observable } from 'rxjs';\n\nconst obs$ = new Observable(observer => {\n  observer.next(1);\n  observer.next(2);\n  setTimeout(() => observer.next(3), 1000);\n  // observer.complete();\n});\n\nconst sub = obs$.subscribe({\n  next: v => console.log(v),\n  error: e => console.error(e),\n  complete: () => console.log('done')\n});\n\nsub.unsubscribe(); // مهم!"
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين Observable و Promise؟",
+        "a": "<b>Observable</b>: متعدد القيم، lazy، cancellable، operators كثيرة. <b>Promise</b>: قيمة واحدة، eager، غير قابل للإلغاء.",
+        "ex": "Promise: قيمة واحدة، بيشتغل فوراً. Observable: stream، lazy، أكثر مرونة.",
+        "code": "// Promise\nfetch('/api').then(r => r.json()); // قيمة واحدة\n// مش قابل للإلغاء بسهولة\n\n// Observable\nthis.http.get('/api')\n  .pipe(\n    retry(3),\n    catchError(e => of([])),\n    map(d => d.items)\n  )\n  .subscribe(/* */);\n\n// متعددة\ninterval(1000).subscribe(n => console.log(n));\n// 0, 1, 2, 3... كل ثانية"
+      },
+      {
+        "l": "m",
+        "q": "ما هو Subject؟",
+        "a": "Observable متعدد المشتركين. يمكن emit values به (next, error, complete). أنواع: BehaviorSubject, ReplaySubject, AsyncSubject.",
+        "ex": "<b>Subject</b> = Observable + Observer. تقدر تبعت قيم وتشترك. مشتركين متعددين بيشاركوا نفس الـ stream.",
+        "code": "import { Subject, BehaviorSubject } from 'rxjs';\n\n// Subject\nconst subject = new Subject<number>();\nsubject.subscribe(v => console.log('A:', v));\nsubject.subscribe(v => console.log('B:', v));\nsubject.next(1); // A: 1, B: 1\n\n// BehaviorSubject (له قيمة افتراضية)\nconst counter = new BehaviorSubject<number>(0);\ncounter.subscribe(v => console.log(v)); // 0\ncounter.next(1); // 1\ncounter.value; // الوصول للقيمة الحالية"
+      },
+      {
+        "l": "m",
+        "q": "ما هو BehaviorSubject؟",
+        "a": "Subject ببداية قيمة، يعطي آخر قيمة لأي subscriber جديد.",
+        "ex": "مفيد للـ state management. أي مشترك جديد بياخد القيمة الحالية فوراً (مش يستنى الـ next التالي).",
+        "code": "// state service\n@Injectable({ providedIn: 'root' })\nexport class CartService {\n  private items$ = new BehaviorSubject<Item[]>([]);\n  cart$ = this.items$.asObservable();\n\n  addItem(item: Item) {\n    const current = this.items$.value;\n    this.items$.next([...current, item]);\n  }\n}\n\n// component\ncart$ = this.cart.cart$;\n// {{ cart$ | async }} يدي القيمة الحالية فوراً"
+      },
+      {
+        "l": "m",
+        "q": "ما هي RxJS Operators الشائعة؟",
+        "a": "<b>map, filter, tap, switchMap, mergeMap, concatMap, debounceTime, distinctUntilChanged, take, takeUntil, catchError, retry</b>.",
+        "ex": "Operators بتحول الـ Observable. تستخدم في <code>.pipe()</code>. كل operator له use case.",
+        "code": "import { map, filter, debounceTime, switchMap, catchError } from 'rxjs/operators';\n\n// search\nthis.searchInput.valueChanges.pipe(\n  debounceTime(300),\n  distinctUntilChanged(),\n  filter(q => q.length >= 2),\n  switchMap(q => this.api.search(q)),\n  catchError(e => of([])),\n  map(results => results.slice(0, 10))\n).subscribe(results => this.results = results);"
+      },
+      {
+        "l": "m",
+        "q": "الفرق بين switchMap و mergeMap و concatMap؟",
+        "a": "<b>switchMap</b> يلغي السابق ويأخذ الجديد. <b>mergeMap</b> ينفذ كلهم بالتوازي. <b>concatMap</b> ينفذ بالتسلسل.",
+        "ex": "<b>switchMap</b>: للـ search (إلغاء القديم). <b>mergeMap</b>: للعمليات المتوازية. <b>concatMap</b>: للترتيب.",
+        "code": "// switchMap: search\nsearch$.pipe(\n  switchMap(q => api.search(q))\n  // كل بحث جديد بيلغي القديم\n);\n\n// mergeMap: متوازي\nbtnClicks$.pipe(\n  mergeMap(() => api.save())\n  // كل ضغطة بترسل request\n);\n\n// concatMap: بالترتيب\norders$.pipe(\n  concatMap(o => api.process(o))\n  // كل order بيستنى اللي قبله\n);"
+      },
+      {
+        "l": "m",
+        "q": "ما هو async pipe؟",
+        "a": "<code>{{ obs$ | async }}</code> يشترك في Observable تلقائياً وينظف عند destroy.",
+        "ex": "بيريحك من الـ subscribe/unsubscribe اليدوي. مفيد جداً ويمنع memory leaks.",
+        "code": "// component\nuser$ = this.userSvc.getUser(this.id);\nposts$ = this.postSvc.getPosts();\n\n// template\n<div *ngIf=\"user$ | async as user\">\n  {{ user.name }}\n</div>\n\n<li *ngFor=\"let post of posts$ | async\">\n  {{ post.title }}\n</li>\n\n<!-- بدون async (سيء) -->\n// constructor() {\n//   this.user$.subscribe(u => this.user = u);\n//   // ما يعرفش يـ unsubscribe\n// }"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Change Detection؟",
+        "a": "الآلية اللي يتعرف بها Angular على التغييرات ويحدث الـ view. تشتغل بعد events, async ops, AJAX.",
+        "ex": "Angular بيشغل change detection على الشجرة كلها بعد كل event. الـ <b>OnPush</b> بتقلل العمليات.",
+        "code": "// triggers:\n// 1. browser events (click, input)\n// 2. setTimeout/setInterval\n// 3. HTTP requests\n// 4. Promises\n\n// OnPush للأداء\n@Component({\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\n\n// trigger يدوياً\nconstructor(private cdr: ChangeDetectorRef) {}\n\nupdate() {\n  this.data = newData;\n  this.cdr.markForCheck();\n}"
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Default و OnPush change detection؟",
+        "a": "<b>Default</b>: يفحص كل components. <b>OnPush</b>: يفحص فقط لو تغير @Input reference، event داخلي، أو async pipe. أداء أفضل.",
+        "ex": "<b>OnPush</b> بتسرع التطبيقات الكبيرة. تتطلب immutable data وuse async pipe.",
+        "code": "@Component({\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: `\n    <p>{{ user.name }}</p>\n    <p>{{ data$ | async }}</p>\n  `\n})\nexport class MyComp {\n  @Input() user!: User;\n  data$ = this.svc.data$;\n\n  // OnPush triggers:\n  // 1. user reference changes\n  // 2. event داخل الـ component\n  // 3. async pipe emits\n  // 4. markForCheck() يدوي\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Zone.js؟",
+        "a": "library تلتقط async operations لتشغيل change detection تلقائياً.",
+        "ex": "Zone.js بتلتقط setTimeout، Promises، events تلقائياً. بدونها مكنش Angular يعرف إنه يحدث الـ view. الـ <b>Signals</b> بيقللوا الاعتماد عليها.",
+        "code": "// Angular بيستخدم Zone.js افتراضياً\n// تقدر تخرج من Zone\n\nconstructor(private zone: NgZone) {}\n\nheavyTask() {\n  this.zone.runOutsideAngular(() => {\n    // هنا change detection ما تتشغلش\n    setInterval(() => {\n      // animation محسوبة\n    }, 16);\n  });\n}\n\n// أحدث: zoneless (Angular 18+)\n// provideExperimentalZonelessChangeDetection()"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Signals (Angular 16+)؟",
+        "a": "reactive primitive جديد يحل محل Zone.js للـ change detection. <code>const count = signal(0); count.set(5);</code>.",
+        "ex": "Signals بتقدم reactivity أحدث وأسرع. الـ component بيتحدث تلقائياً لما الـ signal يتغير.",
+        "code": "import { signal, computed, effect } from '@angular/core';\n\n@Component({\n  template: `\n    <p>Count: {{ count() }}</p>\n    <p>Double: {{ double() }}</p>\n    <button (click)=\"increment()\">+1</button>\n  `\n})\nexport class Counter {\n  count = signal(0);\n  double = computed(() => this.count() * 2);\n\n  constructor() {\n    effect(() => {\n      console.log('Count:', this.count());\n    });\n  }\n\n  increment() {\n    this.count.update(n => n + 1);\n  }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو computed signal؟",
+        "a": "signal مشتق من signals أخرى: <code>const double = computed(() => count() * 2)</code>.",
+        "ex": "بيتحدث تلقائياً لما الـ dependencies تتغير. lazy (يحسب لما يحتاج). cached (مش بيحسب كل مرة).",
+        "code": "const firstName = signal('Ahmed');\nconst lastName = signal('Mohamed');\n\nconst fullName = computed(() => \n  `${firstName()} ${lastName()}`\n);\n\nconsole.log(fullName()); // 'Ahmed Mohamed'\nfirstName.set('Ali');\nconsole.log(fullName()); // 'Ali Mohamed'\n\n// الـ computed:\n// - lazy: ما يحسبش لحد ما تطلبه\n// - cached: لو ما تغيرش dependency، يرجع نفس القيمة"
+      },
+      {
+        "l": "a",
+        "q": "ما هو effect؟",
+        "a": "side effect ينفذ عند تغير signals: <code>effect(() => console.log(count()))</code>.",
+        "ex": "بيشتغل أول مرة، وبعدين كل ما الـ signals اللي بيقراها تتغير. للـ side effects (logging, DOM, localStorage).",
+        "code": "const theme = signal('light');\n\neffect(() => {\n  document.body.dataset.theme = theme();\n  localStorage.setItem('theme', theme());\n});\n\ntheme.set('dark'); // الـ effect يشتغل تلقائياً\n\n// cleanup\neffect((onCleanup) => {\n  const id = setInterval(() => {}, 1000);\n  onCleanup(() => clearInterval(id));\n});"
+      },
+      {
+        "l": "a",
+        "q": "ما هو AOT vs JIT؟",
+        "a": "<b>AOT (Ahead-of-Time)</b>: compile وقت البناء، أسرع، حجم أصغر، أخطاء مبكرة. <b>JIT (Just-in-Time)</b>: compile في المتصفح، أبطأ.",
+        "ex": "AOT الافتراضي والموصى به. JIT للـ development debugging فقط.",
+        "code": "# AOT (default في prod)\nng build --configuration production\n\n# JIT\nng build --aot=false\n\n# الفرق:\n# AOT:\n# - compile مسبقاً\n# - حجم أصغر\n# - أداء أفضل\n# - أخطاء templates مبكرة\n#\n# JIT:\n# - compile في المتصفح\n# - حجم أكبر (يحوي الـ compiler)\n# - أبطأ في first load"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Universal (SSR)؟",
+        "a": "render Angular على السيرفر. يحسن SEO وأول tتحميل.",
+        "ex": "بيـ render الـ HTML على Node.js، فالـ user يشوف الصفحة فوراً. SEO أحسن (الـ crawlers بيقروا HTML).",
+        "code": "# إضافة SSR\nng add @angular/ssr\n\n# build\nng build\n\n# تشغيل السيرفر\nnpm run serve:ssr:my-app\n\n# الفرق:\n# CSR: السيرفر يبعت HTML فاضي، الـ JS يـ render\n# SSR: السيرفر يبعت HTML كامل، الـ JS يـ hydrate"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Hydration؟",
+        "a": "عملية ربط الـ Angular client-side بـ HTML المُرسل من السيرفر بدون إعادة render.",
+        "ex": "بدون hydration: الـ JS بيمسح الـ HTML من السيرفر ويـ re-render (flicker). مع hydration: بيـ reuse الـ HTML.",
+        "code": "// app.config.ts\nimport { provideClientHydration } from '@angular/platform-browser';\n\nexport const appConfig: ApplicationConfig = {\n  providers: [\n    provideRouter(routes),\n    provideClientHydration()  // فعل hydration\n  ]\n};\n\n// النتيجة:\n// - أول رسم أسرع (HTML من السيرفر)\n// - مفيش flicker\n// - تجربة سلسة"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Modules vs Standalone؟",
+        "a": "<b>Modules</b>: التقليدية، تجمع components/services/directives. <b>Standalone</b>: components مستقلة بدون module (الأفضل في الجديد).",
+        "ex": "<b>Standalone</b> الـ default في Angular 17+. أبسط وأنظف. NgModules لسه مدعومة لكن مش موصى بها للجديد.",
+        "code": "// Modules (قديم)\n@NgModule({\n  declarations: [UserComponent],\n  imports: [CommonModule, FormsModule],\n  exports: [UserComponent]\n})\nexport class UserModule {}\n\n// Standalone (حديث)\n@Component({\n  selector: 'app-user',\n  standalone: true,  // default في Angular 17+\n  imports: [CommonModule, FormsModule],\n  template: '...'\n})\nexport class UserComponent {}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي ViewEncapsulation؟",
+        "a": "كيف Angular يعزل الـ styles: <b>Emulated</b> (افتراضي), <b>None</b> (global), <b>ShadowDom</b> (Shadow DOM).",
+        "ex": "<b>Emulated</b>: Angular يضيف attributes فريدة (افتراضي). <b>None</b>: styles عالمية. <b>ShadowDom</b>: عزل حقيقي.",
+        "code": "// Emulated (default)\n@Component({\n  styles: ['p { color: red; }'],\n  encapsulation: ViewEncapsulation.Emulated\n})\n// Angular يضيف [_ngcontent-...] لعزل\n\n// None (global)\n@Component({\n  encapsulation: ViewEncapsulation.None\n})\n// styles بتأثر على كل التطبيق\n\n// ShadowDom (real isolation)\n@Component({\n  encapsulation: ViewEncapsulation.ShadowDom\n})"
+      },
+      {
+        "l": "a",
+        "q": "ما هي :host و :host-context؟",
+        "a": "<b>:host</b> يستهدف العنصر الحاوي. <b>:host-context</b> يستهدف ancestor بشروط.",
+        "ex": "<b>:host</b> للـ component نفسه. <b>:host-context</b> بناءً على ancestor (مفيد للـ themes).",
+        "code": "// component styles\n:host {\n  display: block;\n  border: 1px solid;\n}\n\n:host(.active) {\n  background: lightblue;\n}\n\n// dark theme\n:host-context(.dark-theme) {\n  background: black;\n  color: white;\n}\n\n// HTML\n<div class=\"dark-theme\">\n  <my-comp></my-comp> <!-- بياخد theme dark -->\n</div>"
+      },
+      {
+        "l": "a",
+        "q": "ما هو ::ng-deep؟",
+        "a": "يخترق encapsulation للوصول لـ children styles. مهجور (deprecated) لكن لا يزال يستخدم.",
+        "ex": "للـ override styles على child components. مش الأفضل (deprecated)، البديل CSS variables أو ViewEncapsulation.None.",
+        "code": "// styles\n:host ::ng-deep .child-class {\n  color: red;\n}\n\n// البديل الأفضل: CSS variables\n:host {\n  --primary-color: red;\n}\n\n// في الـ child component\n.element {\n  color: var(--primary-color);\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو providers في Angular؟",
+        "a": "إعدادات DI تحدد كيفية إنشاء dependencies. يمكن في @NgModule, @Component, @Injectable.",
+        "ex": "Providers بتقول للـ injector \"كيف تنشئ instance\". تقدر تستبدل services بـ mocks للاختبار.",
+        "code": "// useClass\nproviders: [\n  { provide: Logger, useClass: ConsoleLogger }\n]\n\n// useValue\nproviders: [\n  { provide: API_URL, useValue: 'https://api.example.com' }\n]\n\n// useFactory\nproviders: [\n  {\n    provide: HttpService,\n    useFactory: (config) => new HttpService(config),\n    deps: [Config]\n  }\n]\n\n// useExisting (alias)\nproviders: [\n  { provide: AppLogger, useExisting: Logger }\n]"
+      },
+      {
+        "l": "a",
+        "q": "ما هي providedIn؟",
+        "a": "<code>@Injectable({providedIn: 'root'})</code>: tree-shakable، singleton عالمي. أفضل من تسجيل في NgModule.",
+        "ex": "<b>'root'</b>: عالمي، tree-shakable. <b>'platform'</b>: لكل التطبيقات. <b>'any'</b>: instance لكل lazy module.",
+        "code": "// 'root': عالمي (الأفضل)\n@Injectable({ providedIn: 'root' })\nexport class UserService {}\n\n// لو مش مستخدمة، بتشال (tree-shaking)\n\n// 'platform': نادر\n@Injectable({ providedIn: 'platform' })\n\n// 'any': instance لكل lazy module\n@Injectable({ providedIn: 'any' })\n\n// component-scoped\n@Component({\n  providers: [UserService] // instance خاصة لكل component\n})"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Hierarchical Injectors؟",
+        "a": "DI شجرية، الـ child injector يرث من parent. الـ component-level providers تنشئ instances جديدة.",
+        "ex": "Angular له شجرة من injectors. الـ child بيدور في نفسه أولاً، بعدين بيصعد للـ parent. تقدر تستبدل service لـ subtree معين.",
+        "code": "// root: instance واحدة\n@Injectable({ providedIn: 'root' })\nexport class CounterService {\n  count = 0;\n}\n\n// كل component يـ inject نفس الـ instance\n\n// component-scoped\n@Component({\n  providers: [CounterService] // instance جديدة هنا\n})\nexport class IsolatedComp {\n  // CounterService خاصة بالـ subtree ده\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Dynamic Components؟",
+        "a": "إنشاء components وقت الـ runtime عبر <code>ViewContainerRef.createComponent()</code>.",
+        "ex": "مفيدة للـ modals والـ dialogs والـ widgets الديناميكية. حلت محل ComponentFactoryResolver القديمة.",
+        "code": "@Component({\n  template: '<ng-container #host></ng-container>'\n})\nexport class HostComp {\n  @ViewChild('host', { read: ViewContainerRef })\n  host!: ViewContainerRef;\n\n  load() {\n    this.host.clear();\n    const ref = this.host.createComponent(MyDynamicComp);\n    ref.instance.data = 'hello';\n    ref.instance.event.subscribe(/* */);\n  }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Animations؟",
+        "a": "animations declarative بـ <code>@Component animations</code>. تعتمد على trigger, state, transition.",
+        "ex": "نظام قوي للأنيميشن. الـ <b>trigger</b> اسم، الـ <b>state</b> الحالات، الـ <b>transition</b> التحول بينها.",
+        "code": "import { trigger, state, style, transition, animate } from '@angular/animations';\n\n@Component({\n  animations: [\n    trigger('fade', [\n      state('void', style({ opacity: 0 })),\n      transition(':enter', [\n        animate('300ms ease', style({ opacity: 1 }))\n      ]),\n      transition(':leave', [\n        animate('300ms ease', style({ opacity: 0 }))\n      ])\n    ])\n  ],\n  template: `\n    <div *ngIf=\"show\" [@fade]>محتوى</div>\n  `\n})\nexport class MyComp { show = true; }"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Material؟",
+        "a": "مكتبة UI components من Google تتبع Material Design.",
+        "ex": "Components جاهزة (buttons, dialogs, tables, forms) بتصميم Material. مدعومة رسمياً من Angular.",
+        "code": "# تثبيت\nng add @angular/material\n\n# usage\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\n\n@Component({\n  imports: [MatButtonModule, MatIconModule],\n  template: `\n    <button mat-raised-button color=\"primary\">\n      <mat-icon>save</mat-icon>\n      حفظ\n    </button>\n  `\n})"
+      },
+      {
+        "l": "a",
+        "q": "ما هي CDK؟",
+        "a": "<b>Component Dev Kit</b>: مجموعة tools لبناء components. تدعم a11y, drag-drop, overlays, scrolling.",
+        "ex": "بنية تحتية لبناء components مخصصة بدون styling. Angular Material مبنية فوقها.",
+        "code": "import { DragDropModule } from '@angular/cdk/drag-drop';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { A11yModule } from '@angular/cdk/a11y';\n\n// drag-drop\n<div cdkDropList (cdkDropListDropped)=\"drop($event)\">\n  <div *ngFor=\"let item of items\" cdkDrag>\n    {{ item }}\n  </div>\n</div>\n\n// overlay (للـ modals/tooltips)\n// virtual scrolling للقوائم الطويلة"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Testing tools؟",
+        "a": "<b>Jasmine</b>: testing framework. <b>Karma</b>: test runner. <b>TestBed</b>: utility لإعداد Angular environment للاختبار.",
+        "ex": "Jasmine للـ describe/it/expect. Karma بيشغل الاختبارات. TestBed بتعمل DI environment للـ components.",
+        "code": "import { TestBed } from '@angular/core/testing';\n\ndescribe('UserService', () => {\n  let service: UserService;\n\n  beforeEach(() => {\n    TestBed.configureTestingModule({\n      providers: [UserService]\n    });\n    service = TestBed.inject(UserService);\n  });\n\n  it('should be created', () => {\n    expect(service).toBeTruthy();\n  });\n\n  it('should return users', () => {\n    expect(service.getUsers()).toEqual([]);\n  });\n});"
+      },
+      {
+        "l": "a",
+        "q": "ما هو spec.ts؟",
+        "a": "ملفات الاختبارات في Angular. تستخدم Jasmine syntax: <code>describe, it, expect</code>.",
+        "ex": "الـ <code>.spec.ts</code> اللصيقة لكل component/service. Karma بيدور عليها ويشغلها.",
+        "code": "// user.component.spec.ts\nimport { ComponentFixture, TestBed } from '@angular/core/testing';\nimport { UserComponent } from './user.component';\n\ndescribe('UserComponent', () => {\n  let component: UserComponent;\n  let fixture: ComponentFixture<UserComponent>;\n\n  beforeEach(async () => {\n    await TestBed.configureTestingModule({\n      imports: [UserComponent]\n    }).compileComponents();\n\n    fixture = TestBed.createComponent(UserComponent);\n    component = fixture.componentInstance;\n  });\n\n  it('should create', () => {\n    expect(component).toBeTruthy();\n  });\n});"
+      },
+      {
+        "l": "a",
+        "q": "ما هي E2E Testing في Angular؟",
+        "a": "اختبار التطبيق ككل. كان Protractor، الآن Cypress أو Playwright موصى بهم.",
+        "ex": "E2E (End-to-End) بتختبر التطبيق كله من الـ browser perspective. أبطأ من unit tests لكن أكثر شمولاً.",
+        "code": "# تثبيت Cypress\nng add @cypress/schematic\n\n# مثال\n// cypress/e2e/login.cy.ts\ndescribe('Login', () => {\n  it('should login', () => {\n    cy.visit('/login');\n    cy.get('input[name=email]').type('a@b.com');\n    cy.get('input[name=password]').type('123456');\n    cy.get('button[type=submit]').click();\n    cy.url().should('include', '/dashboard');\n  });\n});\n\n# تشغيل\nnpx cypress open"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Trackby في *ngFor؟",
+        "a": "تحسن الأداء بإخبار Angular كيف يتعرف على العناصر: <code>*ngFor=\"let item of items; trackBy: trackFn\"</code>.",
+        "ex": "بدون trackBy، Angular بيعيد بناء كل العناصر لو الـ array اتغير. مع trackBy، بيعرف العناصر الموجودة ويعيد استخدامها.",
+        "code": "@Component({\n  template: `\n    <li *ngFor=\"let user of users; trackBy: trackById\">\n      {{ user.name }}\n    </li>\n  `\n})\nexport class UserList {\n  users: User[] = [];\n\n  trackById(index: number, user: User): number {\n    return user.id;\n  }\n}\n\n// النتيجة: Angular يعيد استخدام DOM elements\n// أداء أفضل بكتير للقوائم الكبيرة"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Pipes pure vs impure؟",
+        "a": "<b>Pure</b> (افتراضي): تنفذ فقط لو الـ input تغير reference. <b>Impure</b>: تنفذ كل change detection cycle.",
+        "ex": "<b>Pure</b> سريعة (cached). <b>Impure</b> بطيئة لكن بترصد التغييرات داخل arrays/objects.",
+        "code": "// pure (default)\n@Pipe({ name: 'filter', standalone: true })\nexport class FilterPipe {\n  transform(items: any[], term: string) {\n    return items.filter(i => i.name.includes(term));\n  }\n}\n// لو items.push() ما يشتغلش! لازم spread جديد\n\n// impure (تجنب)\n@Pipe({ name: 'filter', pure: false, standalone: true })\nexport class FilterPipe {\n  // بيشتغل كل CD cycle (بطيء)\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Angular Schematics؟",
+        "a": "templates لتوليد كود تلقائياً (مثل ng generate). تستخدم في الـ libraries.",
+        "ex": "<code>ng generate</code> ينفذ schematics. تقدر تكتب schematics مخصصة للـ libraries بتاعتك.",
+        "code": "# استخدام\nng generate component my-comp\nng g c my-comp  # اختصار\n\n# external schematics\nng add @angular/material\nng add @angular/pwa\n\n# توليد\nng g @angular/material:navigation\nng g @ngrx/schematics:store"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Differential Loading؟",
+        "a": "بناء نسختين: ES5 للمتصفحات القديمة، ES2015+ للحديثة. أزيلت في Angular 12.",
+        "ex": "كانت بتنشئ bundles مختلفة للمتصفحات القديمة والحديثة. اتشالت لأن IE اتدمر والمتصفحات الحديثة بتدعم ES2015+.",
+        "code": "// قديم (Angular 8-11)\n// browserslist:\n// > 0.5%\n// last 2 versions\n// IE 11\n// كان ينشئ:\n// - main.es5.js (للقديمة)\n// - main.es2015.js (للحديثة)\n\n// اليوم (Angular 12+)\n// bundle واحد بـ ES2015+ فقط"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Ivy؟",
+        "a": "الـ rendering engine الجديد في Angular 9+. أسرع، حجم أصغر، أفضل debugging.",
+        "ex": "Ivy حلت محل ViewEngine القديم. أسرع compilation، bundle أصغر، tree-shaking أفضل.",
+        "code": "// Ivy default منذ Angular 9\n\n// مميزات:\n// - bundle أصغر (~20-30%)\n// - أسرع في compilation\n// - أفضل debugging (stack traces)\n// - يدعم lazy loading\n// - أساس لـ Standalone Components و Signals\n\n// لا تحتاج تكوين، Angular يستخدمها تلقائياً"
+      },
+      {
+        "l": "a",
+        "q": "الفرق بين Angular و React؟",
+        "a": "<b>Angular</b>: framework كامل، TS، two-way binding، DI، RxJS. <b>React</b>: library، JSX، one-way، hooks.",
+        "ex": "<b>Angular</b>: opinionated، solution كاملة. <b>React</b>: مرن، تختار libraries بنفسك.",
+        "code": "// Angular\n@Component({\n  template: `\n    <input [(ngModel)]=\"name\">\n    <p>{{ name }}</p>\n  `\n})\nexport class Comp {\n  name = '';\n}\n\n// React\nfunction Comp() {\n  const [name, setName] = useState('');\n  return (\n    <>\n      <input value={name} onChange={e => setName(e.target.value)} />\n      <p>{name}</p>\n    </>\n  );\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Deferrable Views (Angular 17)؟",
+        "a": "تأجيل تحميل أجزاء من الـ template: <code>@defer { ... }</code> مع triggers مثل <code>on viewport, on idle</code>.",
+        "ex": "تحسن الأداء بتأخير تحميل components ثقيلة. بتدعم triggers مختلفة (viewport, hover, click, idle).",
+        "code": "<!-- defer مع loading state -->\n@defer (on viewport) {\n  <heavy-chart [data]=\"data\"/>\n} @loading {\n  <p>تحميل...</p>\n} @placeholder {\n  <div>placeholder</div>\n} @error {\n  <p>خطأ في التحميل</p>\n}\n\n<!-- triggers -->\n@defer (on idle) { ... }\n@defer (on hover(button)) { ... }\n@defer (on interaction) { ... }\n@defer (when condition()) { ... }"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Built-in Control Flow (Angular 17)؟",
+        "a": "بدائل لـ ngIf/ngFor: <code>@if, @for, @switch</code>. أنظف وأسرع.",
+        "ex": "syntax أبسط وأداء أفضل. الـ <code>@for</code> بتلزم بـ <code>track</code> للأداء.",
+        "code": "<!-- @if -->\n@if (user) {\n  <p>{{ user.name }}</p>\n} @else if (loading) {\n  <p>تحميل...</p>\n} @else {\n  <p>لا يوجد</p>\n}\n\n<!-- @for -->\n@for (item of items; track item.id) {\n  <li>{{ item.name }}</li>\n} @empty {\n  <li>قائمة فاضية</li>\n}\n\n<!-- @switch -->\n@switch (status) {\n  @case ('active') { نشط }\n  @case ('inactive') { غير نشط }\n  @default { غير معروف }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Input Signals (Angular 17.1+)؟",
+        "a": "<code>input()</code> بدل <code>@Input()</code>. ترجع signal للـ reactivity.",
+        "ex": "بديل modern لـ @Input. ترجع signal فتقدر تستخدمه مع computed و effect.",
+        "code": "import { input } from '@angular/core';\n\n@Component({\n  template: `<p>{{ greeting() }}</p>`\n})\nexport class Greet {\n  // optional\n  name = input<string>();\n\n  // مع default\n  age = input(18);\n\n  // required\n  id = input.required<number>();\n\n  // مع transform\n  count = input(0, { transform: numberAttribute });\n\n  greeting = computed(() => `Hi ${this.name() ?? 'guest'}`);\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Required Inputs؟",
+        "a": "<code>@Input({required: true})</code> أو <code>input.required()</code>. يفرض تمرير القيمة.",
+        "ex": "بتلزم الـ parent بتمرير الـ input. لو ما اتمررش يبقى compile error.",
+        "code": "// classic\n@Component({...})\nexport class UserCard {\n  @Input({ required: true }) user!: User;\n}\n\n// signal-based\nexport class UserCard {\n  user = input.required<User>();\n}\n\n// usage\n<user-card [user]=\"someUser\"/>     <!-- OK -->\n<user-card/>                       <!-- خطأ! -->"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Output() function (Angular 17.3+)؟",
+        "a": "<code>output&lt;T&gt;()</code> بدل <code>@Output() ... = new EventEmitter()</code>. أنظف وtype-safe.",
+        "ex": "بديل modern لـ @Output. ما يستخدمش EventEmitter.",
+        "code": "import { output } from '@angular/core';\n\n// قديم\n@Component({...})\nexport class Btn {\n  @Output() clicked = new EventEmitter<string>();\n\n  click() {\n    this.clicked.emit('hello');\n  }\n}\n\n// جديد (Angular 17.3+)\nexport class Btn {\n  clicked = output<string>();\n\n  click() {\n    this.clicked.emit('hello');\n  }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي ViewChild as Signal؟",
+        "a": "<code>viewChild()</code> ترجع signal بدل من ViewChild decorator.",
+        "ex": "بديل modern للـ @ViewChild. signal فمتاحة بعد view init تلقائياً.",
+        "code": "import { viewChild, ElementRef } from '@angular/core';\n\nexport class MyComp {\n  // قديم\n  // @ViewChild('input') input!: ElementRef;\n\n  // جديد\n  input = viewChild<ElementRef>('input');\n  // أو\n  inputReq = viewChild.required<ElementRef>('input');\n\n  focus() {\n    this.input()?.nativeElement.focus();\n  }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو Angular Universal vs Hydration؟",
+        "a": "<b>Universal</b> SSR لتوليد HTML. <b>Hydration</b> ربط الـ JS بـ HTML المرسل بدون إعادة render.",
+        "ex": "Universal بيـ render على السيرفر. Hydration بيستخدم الـ HTML الموجود بدلاً من re-rendering.",
+        "code": "# تفعيل SSR + Hydration\nng add @angular/ssr\n\n// app.config.ts\nimport { provideClientHydration } from '@angular/platform-browser';\n\nexport const appConfig: ApplicationConfig = {\n  providers: [\n    provideRouter(routes),\n    provideClientHydration(),\n    provideHttpClient(withFetch())\n  ]\n};"
+      },
+      {
+        "l": "a",
+        "q": "ما هي NgZone؟",
+        "a": "service للتحكم في change detection، يمكن تنفيذ كود <code>runOutsideAngular</code> لتجنب CD.",
+        "ex": "بتسمح بالخروج من Zone (تجنب CD) أو الدخول. مفيد للأنيميشن وعمليات متكررة.",
+        "code": "constructor(private zone: NgZone) {}\n\nstartTimer() {\n  // خارج Angular zone (سريع)\n  this.zone.runOutsideAngular(() => {\n    setInterval(() => {\n      // ما يـ trigger CD\n      this.frame++;\n    }, 16);\n  });\n}\n\nupdate() {\n  // العودة للـ zone\n  this.zone.run(() => {\n    this.data = newData; // CD يشتغل\n  });\n}"
+      },
+      {
+        "l": "a",
+        "q": "كيف تشتغل two-way binding داخلياً؟",
+        "a": "<code>[(ngModel)]</code> = <code>[ngModel]</code> + <code>(ngModelChange)</code> = property binding + event binding.",
+        "ex": "الـ banana-in-a-box <b>[(...)]</b> اختصار. تقدر تعمل two-way مخصصة في component أي بإضافة input + output بنفس الاسم + Change.",
+        "code": "<!-- two-way -->\n<input [(ngModel)]=\"name\">\n\n<!-- = -->\n<input [ngModel]=\"name\" (ngModelChange)=\"name = $event\">\n\n<!-- custom two-way -->\n@Component({\n  selector: 'rating',\n  template: '...'\n})\nexport class Rating {\n  @Input() value = 0;\n  @Output() valueChange = new EventEmitter<number>();\n\n  set(v: number) {\n    this.value = v;\n    this.valueChange.emit(v);\n  }\n}\n\n<!-- usage -->\n<rating [(value)]=\"score\"/>"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Reactive Forms validators؟",
+        "a": "يضافون كـ argument ثاني للـ FormControl: <code>new FormControl('', [Validators.required, Validators.email])</code>.",
+        "ex": "Validators built-in: required, email, minLength, maxLength, pattern, min, max. تقدر تجمعهم في array.",
+        "code": "form = new FormGroup({\n  email: new FormControl('', [\n    Validators.required,\n    Validators.email\n  ]),\n  password: new FormControl('', [\n    Validators.required,\n    Validators.minLength(8),\n    Validators.pattern(/[A-Z]/)\n  ]),\n  age: new FormControl('', [\n    Validators.min(18),\n    Validators.max(99)\n  ])\n});\n\n// التحقق\nthis.form.get('email')?.errors?.['required'];\nthis.form.get('email')?.hasError('email');"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Async Validators؟",
+        "a": "validators ترجع Observable/Promise، تستخدم للتحقق من السيرفر (مثل: هل username متاح).",
+        "ex": "تشتغل async، بترجع Observable. تنفذ بعد sync validators. تظهر pending لحد ما تخلص.",
+        "code": "function uniqueUsername(http: HttpClient): AsyncValidatorFn {\n  return (control: AbstractControl) => {\n    return http.get<{exists: boolean}>(`/check/${control.value}`).pipe(\n      map(r => r.exists ? { taken: true } : null),\n      catchError(() => of(null))\n    );\n  };\n}\n\n// usage\nusername: new FormControl('', \n  Validators.required,           // sync\n  uniqueUsername(this.http)      // async\n)\n\n// التحقق\nform.get('username')?.pending;"
+      },
+      {
+        "l": "a",
+        "q": "ما هي ControlValueAccessor؟",
+        "a": "interface لإنشاء custom form controls تعمل مع ngModel/FormControl.",
+        "ex": "بتسمح لـ custom component يندمج مع Angular forms. لازم تنفذ 4 methods.",
+        "code": "@Component({\n  selector: 'rating-input',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => RatingInput),\n    multi: true\n  }],\n  template: '...'\n})\nexport class RatingInput implements ControlValueAccessor {\n  value = 0;\n  onChange = (v: number) => {};\n  onTouched = () => {};\n\n  writeValue(v: number) { this.value = v; }\n  registerOnChange(fn: any) { this.onChange = fn; }\n  registerOnTouched(fn: any) { this.onTouched = fn; }\n  setDisabledState?(d: boolean) { /* */ }\n}\n\n// usage\n<rating-input [(ngModel)]=\"rating\"/>"
+      },
+      {
+        "l": "a",
+        "q": "كيف تتعامل مع memory leaks في Angular؟",
+        "a": "<b>unsubscribe</b> في ngOnDestroy، استخدام <b>takeUntil</b>، <b>async pipe</b>، <b>takeUntilDestroyed</b> (v16+).",
+        "ex": "Subscriptions اللي ما يتـ unsubscribe بتسبب memory leaks. الحلول: async pipe (الأبسط)، takeUntilDestroyed (الأحدث).",
+        "code": "// 1. async pipe (الأبسط)\nuser$ = this.svc.getUser();\n// {{ user$ | async | json }}\n\n// 2. takeUntilDestroyed (Angular 16+)\nimport { takeUntilDestroyed } from '@angular/core/rxjs-interop';\n\nexport class MyComp {\n  ngOnInit() {\n    this.svc.data$.pipe(\n      takeUntilDestroyed(this.destroyRef)\n    ).subscribe();\n  }\n  destroyRef = inject(DestroyRef);\n}\n\n// 3. takeUntil pattern\nprivate destroy$ = new Subject<void>();\nngOnDestroy() {\n  this.destroy$.next();\n  this.destroy$.complete();\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي takeUntilDestroyed؟",
+        "a": "operator في Angular 16+ يلغي الاشتراك تلقائياً عند destroy الـ component.",
+        "ex": "بديل أنظف من takeUntil(destroy$) القديم. يستخدم DestroyRef تلقائياً في injection context.",
+        "code": "import { takeUntilDestroyed } from '@angular/core/rxjs-interop';\n\nexport class MyComp {\n  // في constructor (injection context)\n  constructor() {\n    this.svc.data$.pipe(\n      takeUntilDestroyed()\n    ).subscribe();\n  }\n\n  // في ngOnInit (محتاج DestroyRef)\n  destroyRef = inject(DestroyRef);\n  ngOnInit() {\n    this.svc.data$.pipe(\n      takeUntilDestroyed(this.destroyRef)\n    ).subscribe();\n  }\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Renderer2؟",
+        "a": "abstraction للوصول للـ DOM آمن (يدعم SSR/Web Workers). أفضل من ElementRef.nativeElement مباشرة.",
+        "ex": "بدلاً من DOM API مباشرة (مش يدعم SSR)، استخدم Renderer2 للـ portability.",
+        "code": "constructor(\n  private el: ElementRef,\n  private renderer: Renderer2\n) {}\n\nngOnInit() {\n  // سيء (لا يدعم SSR)\n  // this.el.nativeElement.style.color = 'red';\n\n  // أفضل\n  this.renderer.setStyle(\n    this.el.nativeElement,\n    'color',\n    'red'\n  );\n  this.renderer.addClass(this.el.nativeElement, 'active');\n  this.renderer.listen(this.el.nativeElement, 'click', () => {});\n}"
+      },
+      {
+        "l": "a",
+        "q": "ما هو HostBinding و HostListener؟",
+        "a": "<b>@HostBinding</b> ربط property على host element. <b>@HostListener</b> الاستماع لأحداث host element.",
+        "ex": "في الـ directives، بتربط property/event على العنصر اللي الـ directive عليه.",
+        "code": "@Directive({\n  selector: '[appHighlight]',\n  standalone: true\n})\nexport class HighlightDirective {\n  @HostBinding('class.highlight') isOn = false;\n  @HostBinding('style.cursor') cursor = 'pointer';\n\n  @HostListener('click') onClick() {\n    this.isOn = !this.isOn;\n  }\n\n  @HostListener('mouseenter') onEnter() {\n    this.cursor = 'pointer';\n  }\n}\n\n// usage\n<div appHighlight>اضغط</div>"
+      },
+      {
+        "l": "a",
+        "q": "ما هي Angular Signals vs Observables؟",
+        "a": "<b>Signals</b> sync, value-based, محلية للـ component. <b>Observables</b> async, stream-based، للـ HTTP والأحداث.",
+        "ex": "<b>Signals</b>: للـ state داخل components (سريعة). <b>Observables</b>: للـ async data (HTTP) والـ events.",
+        "code": "// Signals: state محلية\ncount = signal(0);\ndoubled = computed(() => this.count() * 2);\n\n// Observables: async\nusers$ = this.http.get<User[]>('/users');\n\n// التكامل\n// observable -> signal\nusers = toSignal(this.users$, { initialValue: [] });\n\n// signal -> observable\ncount$ = toObservable(this.count);\n\n// اختار حسب الـ use case"
+      },
+      {
+        "l": "a",
+        "q": "ما هو inject() function؟",
+        "a": "بديل للـ constructor injection: <code>const svc = inject(MyService)</code>. يشتغل في injection context.",
+        "ex": "بديل modern لـ constructor injection. أنظف للـ inheritance ولـ functional code.",
+        "code": "// قديم\nexport class MyComp {\n  constructor(\n    private http: HttpClient,\n    private auth: AuthService,\n    private router: Router\n  ) {}\n}\n\n// جديد\nexport class MyComp {\n  private http = inject(HttpClient);\n  private auth = inject(AuthService);\n  private router = inject(Router);\n}\n\n// في functions (functional guards/interceptors)\nexport const authGuard: CanActivateFn = () => {\n  const auth = inject(AuthService);\n  return auth.isLoggedIn();\n};"
+      },
+      {
+        "l": "a",
+        "q": "ما هي functional Guards و Interceptors؟",
+        "a": "بدائل function-based للـ class-based في Angular 14+. أبسط وأقل boilerplate.",
+        "ex": "بدلاً من classes كاملة، function واحدة. أنظف وأسهل.",
+        "code": "// functional guard\nexport const authGuard: CanActivateFn = (route, state) => {\n  const auth = inject(AuthService);\n  const router = inject(Router);\n  return auth.isLoggedIn() || router.parseUrl('/login');\n};\n\n// functional interceptor\nexport const authInterceptor: HttpInterceptorFn = (req, next) => {\n  const token = inject(AuthService).token;\n  return next(req.clone({\n    setHeaders: { Authorization: `Bearer ${token}` }\n  }));\n};\n\n// تسجيل\nproviders: [\n  provideHttpClient(withInterceptors([authInterceptor]))\n]"
+      },
+      {
+        "l": "a",
+        "q": "ما هي ng-deep alternative؟",
+        "a": "استخدام <b>ViewEncapsulation.None</b> أو <b>:host ::ng-deep</b> أو <b>global styles</b>.",
+        "ex": "<code>::ng-deep</code> deprecated. البدائل: CSS variables، ViewEncapsulation.None، أو global styles في styles.css.",
+        "code": "// 1. CSS Variables (الأفضل)\n:host {\n  --btn-color: red;\n}\n\n// في الـ child\n.btn {\n  background: var(--btn-color);\n}\n\n// 2. ViewEncapsulation.None\n@Component({\n  encapsulation: ViewEncapsulation.None\n})\n\n// 3. Global styles (styles.css)\n.global-class {\n  color: red;\n}\n\n// 4. ::ng-deep (deprecated لكن لسه شغال)\n:host ::ng-deep .child {\n  color: red;\n}"
+      }
+    ]
   }
 ]

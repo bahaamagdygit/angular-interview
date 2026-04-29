@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const d = require\\('d:/MyProjects/angular-interview/data.json'\\); console.log\\('Sections:', d.length\\); d.forEach\\(s => console.log\\(s.id, ':', s.q.length, 'questions'\\)\\);\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
